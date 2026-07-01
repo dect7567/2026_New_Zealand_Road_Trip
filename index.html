@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>紐西蘭南島環島路線</title>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="landing-shell">
+      <section class="map-landing" aria-label="紐西蘭南島環島路線">
+        <div class="landing-copy">
+          <p class="eyebrow">2026.11.27 - 12.07</p>
+          <h1>紐西蘭南島環島路線</h1>
+          <p>從基督城出發，沿著湖區、庫克山、皇后鎮、米佛峽灣與東岸城市繞回機場。從每日列表進入各天的行程頁。</p>
+          <div class="landing-actions">
+            <a class="map-button" href="days/day-01.html">從 Day 1 開始</a>
+            <a class="ghost-button" href="#dayDirectory">查看每日列表</a>
+          </div>
+        </div>
+
+        <div class="landing-highlights" aria-label="行程亮點">
+          <a href="days/day-02.html">
+            <span>⛪</span>
+            <strong>特卡波湖與牧羊人教堂</strong>
+          </a>
+          <a href="days/day-03.html">
+            <span>🚁</span>
+            <strong>庫克山與雪山景色</strong>
+          </a>
+          <a href="days/day-07.html">
+            <span>⛴️</span>
+            <strong>米佛峽灣遊船</strong>
+          </a>
+          <a href="days/day-09.html">
+            <span>🪽</span>
+            <strong>信天翁與企鵝生態</strong>
+          </a>
+        </div>
+      </section>
+
+      <section class="dashboard landing-dashboard" aria-label="行程摘要">
+        <div>
+          <span class="metric__value">11</span>
+          <span class="metric__label">天行程</span>
+        </div>
+        <div>
+          <span class="metric__value">9</span>
+          <span class="metric__label">主要城鎮</span>
+        </div>
+        <div>
+          <span class="metric__value">1</span>
+          <span class="metric__label">露營車環線</span>
+        </div>
+        <div>
+          <span class="metric__value">南島</span>
+          <span class="metric__label">湖泊、山脈、峽灣、海岸</span>
+        </div>
+      </section>
+
+      <section id="dayDirectory" class="day-directory">
+        <div class="section-heading">
+          <p class="eyebrow">Days</p>
+          <h2>每日行程</h2>
+        </div>
+        <div id="landingDayGrid" class="landing-day-grid"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

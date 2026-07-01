@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Day 2</title>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body data-day-page="2">
+    <header class="day-page-hero">
+      <div id="dayHeroImage" class="day-page-hero__image" aria-hidden="true"></div>
+      <nav class="day-nav" aria-label="行程導覽">
+        <a class="ghost-button ghost-button--light" href="../index.html">返回首頁</a>
+        <a id="mapsLink" class="map-button" target="_blank" rel="noreferrer">開啟地圖</a>
+      </nav>
+      <div class="day-page-hero__content">
+        <p id="detailDate" class="eyebrow"></p>
+        <h1 id="detailTitle"></h1>
+      </div>
+    </header>
+    <main class="day-page-main">
+      <div id="routeStrip" class="route-strip"></div>
+      <div class="day-info-grid">
+        <section class="day-info-card">
+          <h2>主要行程</h2>
+          <div id="dayPrimaryList" class="info-list"></div>
+        </section>
+        <section class="day-info-card">
+          <h2>其他替代方案</h2>
+          <div id="dayAlternativeList" class="info-list"></div>
+        </section>
+        <section class="day-info-card day-info-card--wide">
+          <h2 id="dayCampHeading">營地建議</h2>
+          <div id="dayCampList" class="camp-list"></div>
+        </section>
+      </div>
+      <nav id="dayPager" class="day-pager" aria-label="前後日期"></nav>
+    </main>
+    <script src="../app.js"></script>
+  </body>
+</html>
