@@ -98,7 +98,7 @@ const days = [
     stay: "Lake Tekapo Motels & Holiday Park。",
     stayType: "營地建議",
     alt: "不去兒童公園的旅伴可以安排基督城市區復古觀光電車，或在雅芳河畔咖啡廳享受悠閒時光。若提早抵達特卡波湖，大人們可以預約 Tekapo Springs 泡露天溫泉。",
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=82"
+    image: "../assets/day-02-lake-tekapo-lupins.jpg"
   },
   {
     day: 3,
@@ -120,7 +120,7 @@ const days = [
     stay: "Glentanner Holiday Park Centre，庫克山區域首選的優質充電營地，風景絕佳。",
     stayType: "營地建議",
     alt: "若同行長輩或大人不想走太遠，可留在隱士飯店 Hermitage Hotel 的景觀餐廳喝下午茶、遠眺雪山；或者自費報名直升機高空冰河降落體驗。",
-    image: "https://images.unsplash.com/photo-1480497490787-505ec076689f?auto=format&fit=crop&w=1400&q=82"
+    image: "../assets/day-03-mount-cook-helicopter.jpg"
   },
   {
     day: 4,
@@ -142,7 +142,7 @@ const days = [
     stay: "Hampshire Holiday Parks - Wanaka 或 Wanaka TOP 10 Holiday Park。",
     stayType: "營地建議",
     alt: "不想去迷宮的大人，可以提早前往瓦納卡湖畔，沿著湖濱步道散步、拍照，或者在鎮上挑一家面對湖景的景觀咖啡廳享用下午茶。",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=82"
+    image: "../assets/day-04-lake-wanaka-tree.jpg"
   },
   {
     day: 5,
@@ -164,7 +164,7 @@ const days = [
     stay: "Queenstown TOP 10 Holiday Park 或 Creekside Holiday Park。",
     stayType: "營地建議",
     alt: "若不想去箭鎮，可以去皇后鎮市區逛街、漫步瓦卡蒂普湖畔、朝聖 Fergburger；也可以自行前往 Skyline 纜車，在山頂景觀台喝下午茶看卓越山脈大景。",
-    image: "https://images.unsplash.com/photo-1512017615494-fdf6146235ff?auto=format&fit=crop&w=1400&q=82"
+    image: "../assets/day-05-arrowtown-old-town.jpg"
   },
   {
     day: 6,
@@ -186,7 +186,7 @@ const days = [
     stay: "Te Anau TOP 10 Holiday Park，地理位置方便，走路即可到達鎮上餐廳與碼頭。",
     stayType: "營地建議",
     alt: "不想看動物的旅伴，上午可以留在皇后鎮市區慢活。晚上若不參加螢火蟲洞，可以在蒂阿瑙湖畔散步觀賞落日，或前往峽灣電影院看峽灣空拍紀錄片。",
-    image: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=82"
+    image: "../assets/day-06-queenstown-main-street.jpg"
   },
   {
     day: 7,
@@ -207,7 +207,7 @@ const days = [
     stay: "續住蒂阿瑙付費營地。",
     stayType: "營地建議",
     alt: "若有同行者不想舟車勞頓，可以留在蒂阿瑙小鎮放空。白天可以沿著 Kepler Track 入口處的平緩森林慢步，或去免費的蒂阿瑙鳥類保護區。",
-    image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1400&q=82"
+    image: "../assets/day-07-milford-sound-cruise.jpg"
   },
   {
     day: 8,
@@ -229,7 +229,7 @@ const days = [
     stay: "Dunedin Aaron Lodge TOP 10 Holiday Park。",
     stayType: "營地建議",
     alt: "不愛戶外走動的大人可以參觀奧維斯頓古宅，欣賞百年前的富豪生活；或者前往 Speight's 啤酒廠參加導覽，品嚐在地精釀啤酒。",
-    image: "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=82"
+    image: "../assets/day-08-dunedin-baldwin-street.jpg"
   },
   {
     day: 9,
@@ -252,7 +252,7 @@ const days = [
     stay: "續住達尼丁付費營地。",
     stayType: "營地建議",
     alt: "不打算看鳥類和動物的同行大人，可以提早在拉納克城堡下車，參觀英式花園，並在城堡內的優雅宴會廳裡享用正統英式下午茶。",
-    image: "https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?auto=format&fit=crop&w=1400&q=82"
+    image: "../assets/day-09-albatross-centre.jpg"
   },
   {
     day: 10,
@@ -274,7 +274,7 @@ const days = [
     stay: "North South Holiday Park，靠近機場與隔天的還車地點，方便整備。",
     stayType: "營地建議",
     alt: "中停奧馬魯時，同行的大人可以在歷史街區逛古董書店、手工羊毛製品店及文青工藝品店。抵達基督城後，若還有體力，可以去 Riverside Market 吃晚餐。",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=82"
+    image: "../assets/day-10-oamaru-steampunk.jpg"
   },
   {
     day: 11,
@@ -295,7 +295,7 @@ const days = [
     stay: "Sudima Christchurch Airport 或 Commodore Airport Hotel，皆提供免費且密集的機場往返接送服務。",
     stayType: "住宿建議",
     alt: "若辦理完入住後時間還早，可以步行前往機場旁邊的國際南極中心。裡面有極地風暴模擬、全地形越野車，還能看到小藍企鵝與哈士奇。",
-    image: "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=1400&q=82"
+    image: "../assets/day-11-christchurch-tram.jpg"
   }
 ];
 
