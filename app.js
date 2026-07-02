@@ -313,8 +313,9 @@ const structuredDays = {
     ],
     campItems: [
       camp("Lake Tekapo Motels & Holiday Park", "湖邊位置方便，適合散步到湖岸與教堂區域。", "Lake Tekapo Motels & Holiday Park New Zealand"),
-      camp("Lakes Edge Holiday Park", "同樣靠近湖邊，旺季可作為備案查詢。", "Lakes Edge Holiday Park Lake Tekapo New Zealand")
-    ]
+      camp("Peppers Bluewater Resort", "若湖邊營地滿位，可改住鎮上的飯店型住宿，保留 Tekapo 湖區行程節奏。", "Peppers Bluewater Resort Lake Tekapo New Zealand")
+    ],
+    campHeading: "營地與住宿備案"
   },
   3: {
     primaryItems: [
