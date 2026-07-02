@@ -9,6 +9,12 @@ const days = [
     highlight: "露營車",
     icon: "🚐",
     stops: ["基督城機場", "基督城 TOP 10 露營地", "市區超市"],
+    routePlaces: [
+      "Christchurch International Airport, New Zealand",
+      "Christchurch campervan rental airport New Zealand",
+      "PAK'nSAVE Riccarton, Christchurch, New Zealand",
+      "Christchurch TOP 10 Holiday Park, New Zealand"
+    ],
     main: "下午兩點抵達基督城機場，出關後前往租車公司辦理露營車取車手續。隨後直接開車前往市區的大型超市，如 Pak'nSave 或 New World 進行大採買，將車上冰箱塞滿食材。第一天晚上在基督城營地過夜，熟悉露營車的設備與操作。",
     stay: "Christchurch TOP 10 Holiday Park 或 North South Holiday Park。",
     stayType: "營地建議",
@@ -82,6 +88,12 @@ const days = [
     highlight: "牧羊人教堂",
     icon: "⛪",
     stops: ["基督城", "特卡波湖營地"],
+    routePlaces: [
+      "Christchurch, New Zealand",
+      "Riverside Market Christchurch, New Zealand",
+      "Margaret Mahy Playground, Christchurch, New Zealand",
+      "Lake Tekapo Motels & Holiday Park, New Zealand"
+    ],
     main: "上午採取自由彈性方案。可以選擇開車進基督城市區，帶小孩去 Riverside Market 享用早午餐，並到 Margaret Mahy 兒童公園盡情放電；或者提早出發前往特卡波湖，提早抵達湖邊散步、欣賞藍色湖水與好牧羊人教堂的午後美景。",
     stay: "Lake Tekapo Motels & Holiday Park。",
     stayType: "營地建議",
@@ -98,6 +110,12 @@ const days = [
     highlight: "雪山直升機",
     icon: "🚁",
     stops: ["特卡波湖", "普卡基湖遊客中心", "庫克山胡克谷步道", "Glentanner 露營地"],
+    routePlaces: [
+      "Lake Tekapo, New Zealand",
+      "Lake Pukaki Visitor Centre, New Zealand",
+      "Hooker Valley Track, Mount Cook National Park, New Zealand",
+      "Glentanner Holiday Park Centre, New Zealand"
+    ],
     main: "早上沿著夢幻的普卡基湖北上開往庫克山。下午挑戰南島最出名的胡克谷步道，單程約 1.5 到 2 小時，沿途地勢平緩，會經過三座吊橋，終點可近距離觀賞冰川湖與庫克山主峰。",
     stay: "Glentanner Holiday Park Centre，庫克山區域首選的優質充電營地，風景絕佳。",
     stayType: "營地建議",
@@ -114,6 +132,12 @@ const days = [
     highlight: "Puzzling World",
     icon: "🧩",
     stops: ["Glentanner 露營地", "High Country Salmon", "瓦納卡 Puzzling World", "瓦納卡營地"],
+    routePlaces: [
+      "Glentanner Holiday Park Centre, New Zealand",
+      "High Country Salmon, Twizel, New Zealand",
+      "Puzzling World, Wanaka, New Zealand",
+      "Hampshire Holiday Parks - Wanaka, New Zealand"
+    ],
     main: "早上輕鬆離開庫克山，順路在特威澤爾的 High Country Salmon 享用鮭魚早午餐、餵魚。隨後翻越林迪斯山口前往瓦納卡。下午帶小孩前往 Puzzling World，傍晚入住瓦納卡湖畔營地，去拍著名的瓦納卡孤獨樹。",
     stay: "Hampshire Holiday Parks - Wanaka 或 Wanaka TOP 10 Holiday Park。",
     stayType: "營地建議",
@@ -130,6 +154,12 @@ const days = [
     highlight: "箭鎮小屋",
     icon: "🏠",
     stops: ["瓦納卡營地", "克倫威爾", "箭鎮", "皇后鎮營地"],
+    routePlaces: [
+      "Hampshire Holiday Parks - Wanaka, New Zealand",
+      "Cromwell Heritage Precinct, New Zealand",
+      "Arrowtown, New Zealand",
+      "Queenstown Creekside Holiday Park, New Zealand"
+    ],
     main: "早上離開瓦納卡，開車前往水果小鎮克倫威爾。中午在當地特色酒莊或精釀啤酒廠喝杯在地啤酒、享用輕食午餐。下午前往箭鎮歷史街區散步，欣賞古老金礦小鎮風情與魔戒取景的編織河道。",
     stay: "Queenstown TOP 10 Holiday Park 或 Creekside Holiday Park。",
     stayType: "營地建議",
@@ -146,6 +176,12 @@ const days = [
     highlight: "Queenstown 街景",
     icon: "🏙️",
     stops: ["皇后鎮營地", "Deer Park Heights", "皇后鎮市區", "蒂阿瑙 TOP 10 露營地"],
+    routePlaces: [
+      "Queenstown Creekside Holiday Park, New Zealand",
+      "Deer Park Heights Queenstown, New Zealand",
+      "Queenstown Mall, New Zealand",
+      "Te Anau TOP 10 Holiday Park, New Zealand"
+    ],
     main: "上午自駕前往 Deer Park Heights，帶小孩在車內沿著山丘穿梭，餵食野生小羊、駝羊、氂牛，並欣賞皇后鎮高空全景。中午回到皇后鎮市區享用午餐，隨後啟程開往蒂阿瑙，晚上參加藍光螢火蟲洞神祕之旅。",
     stay: "Te Anau TOP 10 Holiday Park，地理位置方便，走路即可到達鎮上餐廳與碼頭。",
     stayType: "營地建議",
@@ -162,6 +198,11 @@ const days = [
     highlight: "峽灣船",
     icon: "⛴️",
     stops: ["蒂阿瑙營地", "米佛峽灣遊船碼頭", "蒂阿瑙營地"],
+    routePlaces: [
+      "Te Anau TOP 10 Holiday Park, New Zealand",
+      "Milford Sound Visitor Terminal, New Zealand",
+      "Te Anau TOP 10 Holiday Park, New Zealand"
+    ],
     main: "清晨出發開往世界奇景米佛峽灣。米佛公路沿途風景震撼，但山路和單向隧道較多，露營車單程建議抓 2.5 到 3 小時。抵達後搭乘巡航船深入峽灣，近距離感受萬年冰川瀑布與尋找海豹。",
     stay: "續住蒂阿瑙付費營地。",
     stayType: "營地建議",
@@ -178,6 +219,12 @@ const days = [
     highlight: "Dunedin 老建築",
     icon: "🏛️",
     stops: ["蒂阿瑙營地", "鮑德溫街", "達尼丁火車站", "Dunedin Aaron Lodge 露營地"],
+    routePlaces: [
+      "Te Anau TOP 10 Holiday Park, New Zealand",
+      "Baldwin Street, Dunedin, New Zealand",
+      "Dunedin Railway Station, New Zealand",
+      "Dunedin Aaron Lodge TOP 10 Holiday Park, New Zealand"
+    ],
     main: "橫跨南島南部，前往充滿蘇格蘭復古風情的東岸第一大城達尼丁。下午造訪世界最陡的街道 Baldwin Street 拍照打卡，並參觀歷史悠久、極具文藝復興風格的達尼丁火車站。",
     stay: "Dunedin Aaron Lodge TOP 10 Holiday Park。",
     stayType: "營地建議",
@@ -194,6 +241,13 @@ const days = [
     highlight: "信天翁",
     icon: "🪽",
     stops: ["達尼丁營地", "奧塔哥半島", "皇家信天翁中心", "企鵝保護區", "達尼丁營地"],
+    routePlaces: [
+      "Dunedin Aaron Lodge TOP 10 Holiday Park, New Zealand",
+      "Larnach Castle, Dunedin, New Zealand",
+      "Royal Albatross Centre, Dunedin, New Zealand",
+      "Penguin Place, Dunedin, New Zealand",
+      "Dunedin Aaron Lodge TOP 10 Holiday Park, New Zealand"
+    ],
     main: "開車沿著美麗的奧塔哥半島公路一路開到盡頭，造訪 Royal Albatross Centre 觀賞世界唯一的陸地皇家信天翁生態，接著在傍晚參加企鵝保護中心導覽，近距離觀察野生黃眼企鵝。",
     stay: "續住達尼丁付費營地。",
     stayType: "營地建議",
@@ -210,6 +264,12 @@ const days = [
     highlight: "奧瑪魯 steampunk",
     icon: "⚙️",
     stops: ["達尼丁營地", "摩拉基大圓石", "奧馬魯歷史街區", "基督城 North South 露營地"],
+    routePlaces: [
+      "Dunedin Aaron Lodge TOP 10 Holiday Park, New Zealand",
+      "Moeraki Boulders, New Zealand",
+      "Oamaru Victorian Precinct, New Zealand",
+      "North South Holiday Park, Christchurch, New Zealand"
+    ],
     main: "今天北返基督城，是一段較長的路程，因此拆成多個停靠點。中途停靠摩拉基大圓石看海灘上的神祕圓石。中午抵達奧馬魯，在維多利亞白石建築街區享用午餐，並帶小孩去蒸汽龐克總部。",
     stay: "North South Holiday Park，靠近機場與隔天的還車地點，方便整備。",
     stayType: "營地建議",
@@ -226,6 +286,11 @@ const days = [
     highlight: "飛機",
     icon: "✈️",
     stops: ["基督城 North South 露營地", "租車公司還車點", "Sudima 機場飯店"],
+    routePlaces: [
+      "North South Holiday Park, Christchurch, New Zealand",
+      "Christchurch campervan rental return airport New Zealand",
+      "Sudima Christchurch Airport, New Zealand"
+    ],
     main: "早上做好露營車的最後清理，排空灰水與黑水、加滿油與瓦斯，隨後前往租車公司指定地點辦理還車手續。交車後搭乘接駁車前往機場附近飯店辦理入住，洗去多日自駕的疲憊。",
     stay: "Sudima Christchurch Airport 或 Commodore Airport Hotel，皆提供免費且密集的機場往返接送服務。",
     stayType: "住宿建議",
@@ -402,8 +467,21 @@ const regionNames = {
 };
 
 function mapsUrl(day) {
-  const query = `${day.stops.join(" to ")}, New Zealand`;
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+  const places = day.routePlaces || day.stops.map((stop) => `${stop}, New Zealand`);
+  const [origin, ...remaining] = places;
+  const destination = remaining.pop() || origin;
+  const params = new URLSearchParams({
+    api: "1",
+    origin,
+    destination,
+    travelmode: "driving"
+  });
+
+  if (remaining.length) {
+    params.set("waypoints", remaining.join("|"));
+  }
+
+  return `https://www.google.com/maps/dir/?${params.toString()}`;
 }
 
 function mapSearchUrl(query) {
