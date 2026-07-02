@@ -313,9 +313,13 @@ const structuredDays = {
     ],
     campItems: [
       camp("Lake Tekapo Motels & Holiday Park", "湖邊位置方便，適合散步到湖岸與教堂區域。", "Lake Tekapo Motels & Holiday Park New Zealand"),
-      camp("Peppers Bluewater Resort", "若湖邊營地滿位，可改住鎮上的飯店型住宿，保留 Tekapo 湖區行程節奏。", "Peppers Bluewater Resort Lake Tekapo New Zealand")
+      camp("Peppers Bluewater Resort", "鎮上大型度假飯店，房型從飯店房到多房 villa，適合多人分房優先查詢。", "Peppers Bluewater Resort Lake Tekapo New Zealand"),
+      camp("Mantra Lake Tekapo", "公寓式住宿，適合家庭或小組分住，同時保留在 Tekapo 過夜的節奏。", "Mantra Lake Tekapo New Zealand"),
+      camp("Grand Suites Lake Tekapo", "飯店式套房選項，位置靠近鎮上，可作為較舒適的分房備案。", "Grand Suites Lake Tekapo New Zealand"),
+      camp("Galaxy Boutique Hotel", "精品飯店，房量較小但有湖景房與雙臥室套房，適合拆成小組查詢。", "Galaxy Boutique Hotel Lake Tekapo New Zealand"),
+      camp("The Godley Hotel", "鎮上老牌飯店選項，若其他住宿滿房，可列入同區域備案比較。", "The Godley Hotel Lake Tekapo New Zealand")
     ],
-    campHeading: "營地與住宿備案"
+    campHeading: "營地與飯店備案"
   },
   3: {
     primaryItems: [
