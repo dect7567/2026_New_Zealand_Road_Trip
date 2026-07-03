@@ -218,15 +218,15 @@ const days = [
     labelCoords: { x: 76, y: 87 },
     highlight: "Dunedin 老建築",
     icon: "🏛️",
-    stops: ["蒂阿瑙營地", "鮑德溫街", "達尼丁火車站", "Dunedin Aaron Lodge 露營地"],
+    stops: ["蒂阿瑙營地", "鮑德溫街", "達尼丁火車站", "Dunedin Holiday Park"],
     routePlaces: [
       "Te Anau TOP 10 Holiday Park, New Zealand",
       "Baldwin Street, Dunedin, New Zealand",
       "Dunedin Railway Station, New Zealand",
-      "Dunedin Aaron Lodge TOP 10 Holiday Park, New Zealand"
+      "Dunedin Holiday Park & Motels, Dunedin, New Zealand"
     ],
     main: "橫跨南島南部，前往充滿蘇格蘭復古風情的東岸第一大城達尼丁。下午造訪世界最陡的街道 Baldwin Street 拍照打卡，並參觀歷史悠久、極具文藝復興風格的達尼丁火車站。",
-    stay: "Dunedin Aaron Lodge TOP 10 Holiday Park。",
+    stay: "Dunedin Holiday Park & Motels。",
     stayType: "營地建議",
     alt: "不愛戶外走動的大人可以參觀奧維斯頓古宅，欣賞百年前的富豪生活；或者前往 Speight's 啤酒廠參加導覽，品嚐在地精釀啤酒。",
     image: "../assets/day-08-dunedin-baldwin-street.jpg"
@@ -242,11 +242,11 @@ const days = [
     icon: "🪽",
     stops: ["達尼丁營地", "奧塔哥半島", "皇家信天翁中心", "企鵝保護區", "達尼丁營地"],
     routePlaces: [
-      "Dunedin Aaron Lodge TOP 10 Holiday Park, New Zealand",
+      "Dunedin Holiday Park & Motels, Dunedin, New Zealand",
       "Larnach Castle, Dunedin, New Zealand",
       "Royal Albatross Centre, Dunedin, New Zealand",
       "Penguin Place, Dunedin, New Zealand",
-      "Dunedin Aaron Lodge TOP 10 Holiday Park, New Zealand"
+      "Dunedin Holiday Park & Motels, Dunedin, New Zealand"
     ],
     main: "開車沿著美麗的奧塔哥半島公路一路開到盡頭，造訪 Royal Albatross Centre 觀賞世界唯一的陸地皇家信天翁生態，接著在傍晚參加企鵝保護中心導覽，近距離觀察野生黃眼企鵝。",
     stay: "續住達尼丁付費營地。",
@@ -265,7 +265,7 @@ const days = [
     icon: "⚙️",
     stops: ["達尼丁營地", "摩拉基大圓石", "奧馬魯歷史街區", "基督城 North South 露營地"],
     routePlaces: [
-      "Dunedin Aaron Lodge TOP 10 Holiday Park, New Zealand",
+      "Dunedin Holiday Park & Motels, Dunedin, New Zealand",
       "Moeraki Boulders, New Zealand",
       "Oamaru Victorian Precinct, New Zealand",
       "North South Holiday Park, Christchurch, New Zealand"
@@ -411,8 +411,9 @@ const structuredDays = {
       info("Speight's 啤酒廠", "Speight's Brewery", "想體驗在地啤酒文化，可查詢導覽與品飲。", "Speight's Brewery Dunedin New Zealand")
     ],
     campItems: [
-      camp("Dunedin Aaron Lodge TOP 10 Holiday Park", "原規劃營地，適合達尼丁停留與隔天前往奧塔哥半島。", "Dunedin Aaron Lodge TOP 10 Holiday Park New Zealand"),
-      camp("Dunedin Holiday Park", "靠近海岸區的備選營地，可依訂房狀況比較。", "Dunedin Holiday Park New Zealand")
+      camp("Dunedin Holiday Park & Motels", "靠近 St Kilda 海岸區，適合達尼丁停留與隔天前往奧塔哥半島。", "Dunedin Holiday Park & Motels New Zealand"),
+      camp("Leith Valley Holiday Park and Motels", "靠近市區北側與植物園方向，可作為達尼丁市區型備案。", "Leith Valley Holiday Park and Motels Dunedin New Zealand"),
+      camp("Portobello Village Tourist Park", "位於奧塔哥半島方向，若 D9 生態行程優先，可列入備案比較。", "Portobello Village Tourist Park Dunedin New Zealand")
     ]
   },
   9: {
@@ -426,8 +427,9 @@ const structuredDays = {
       info("奧塔哥半島海景咖啡", "Otago Peninsula cafes", "想放慢節奏的人，可在半島找海景咖啡或簡短散步。", "Otago Peninsula cafes New Zealand")
     ],
     campItems: [
-      camp("Dunedin Aaron Lodge TOP 10 Holiday Park", "續住可減少移動，活動結束後直接回營地休息。", "Dunedin Aaron Lodge TOP 10 Holiday Park New Zealand"),
-      camp("Dunedin Holiday Park", "達尼丁市區周邊備案，方便隔天北返。", "Dunedin Holiday Park New Zealand")
+      camp("Dunedin Holiday Park & Motels", "續住可減少移動，活動結束後直接回營地休息。", "Dunedin Holiday Park & Motels New Zealand"),
+      camp("Leith Valley Holiday Park and Motels", "若想住得離市區更近，可作為第二選擇。", "Leith Valley Holiday Park and Motels Dunedin New Zealand"),
+      camp("Portobello Village Tourist Park", "靠近奧塔哥半島生態景點，但隔天北返需多抓回程時間。", "Portobello Village Tourist Park Dunedin New Zealand")
     ]
   },
   10: {
