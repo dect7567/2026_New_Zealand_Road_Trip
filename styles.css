@@ -787,6 +787,14 @@ select {
   border-top-color: var(--sun);
 }
 
+.day-info-card--food {
+  border-top-color: var(--clay);
+}
+
+.day-info-card--supply {
+  border-top-color: var(--lake);
+}
+
 .day-info-card h2 {
   margin-bottom: 16px;
   font-size: clamp(21px, 3vw, 28px);

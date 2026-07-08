@@ -60,6 +60,52 @@ const days = [
         mapQuery: "Christchurch Airport restaurants New Zealand"
       }
     ],
+    foodItems: [
+      {
+        title: "Riverside Market",
+        location: "Christchurch CBD",
+        description: "第一晚若大家還有體力進市區，這裡適合分頭點餐，口味選擇多，20 人也比較好分流。",
+        meta: "彈性晚餐 · vendor 營業時間各自確認",
+        mapQuery: "Riverside Market Christchurch"
+      },
+      {
+        title: "Little High Eatery",
+        location: "Christchurch CBD",
+        description: "多店家共用座位的 casual food hall，適合剛抵達時不想為了餐廳訂位傷腦筋。",
+        meta: "備案晚餐 · 適合混合口味",
+        mapQuery: "Little High Eatery Christchurch"
+      },
+      {
+        title: "機場周邊簡單用餐",
+        location: "Christchurch Airport",
+        description: "若取車或採買延誤，直接在機場附近解決晚餐，優先保留第一晚整理車輛的時間。",
+        meta: "低壓備案 · 以當日營業為準",
+        mapQuery: "Christchurch Airport restaurants New Zealand"
+      }
+    ],
+    supplyItems: [
+      {
+        title: "PAK'nSAVE Riccarton 大採買",
+        location: "Riccarton",
+        description: "第一段重點補給：早餐、飲水、零食、露營車晚餐食材、調味料與清潔耗材一次補齊。",
+        meta: "主採買點 · 建議分工採買",
+        mapQuery: "PAK'nSAVE Riccarton Christchurch New Zealand"
+      },
+      {
+        title: "New World / Woolworths 備用採買",
+        location: "Christchurch 市區",
+        description: "若 Pak'nSave 人潮太多或路線不順，可改用附近超市補齊生鮮與隔天上路食材。",
+        meta: "超市備案 · 依住宿位置選最近分店",
+        mapQuery: "New World supermarket Christchurch"
+      },
+      {
+        title: "出城前先補滿油",
+        location: "Christchurch",
+        description: "D2 會往 Tekapo 移動，第一天或隔天出城前先把油補滿，比進山區後臨時找加油站安心。",
+        meta: "加油提醒 · 取車後確認油種",
+        mapQuery: "petrol station Christchurch Riccarton"
+      }
+    ],
     campItems: [
       {
         title: "Christchurch TOP 10 Holiday Park",
@@ -311,6 +357,16 @@ const structuredDays = {
       info("雅芳河畔散步", "Avon River", "安排咖啡、河畔散步或輕量市區活動，適合慢慢調整時差。", "Avon River Christchurch New Zealand"),
       info("Tekapo Springs 溫泉", "Tekapo Springs", "若提早抵達特卡波湖，可以泡溫泉看湖景，讓大人也有放鬆時間。", "Tekapo Springs Lake Tekapo New Zealand")
     ],
+    foodItems: [
+      info("Riverside Market", "Christchurch CBD", "上午若先留在基督城，可在這裡早午餐、咖啡與小吃分流。", "Riverside Market Christchurch", "早午餐 · vendor 營業時間各自確認"),
+      info("Fairlie Bakehouse", "Fairlie", "往 Tekapo 路上經典派店，下午關門風險高，適合中午前後停靠外帶。", "Fairlie Bakehouse New Zealand", "路上點心 · 不要太晚到"),
+      info("Kohan Restaurant", "Lake Tekapo", "抵達 Tekapo 後的日式晚餐候選，若全團一起吃建議先訂位。", "Kohan Restaurant Lake Tekapo", "晚餐候選 · 建議確認營業與訂位")
+    ],
+    supplyItems: [
+      info("基督城出發前補貨", "Christchurch supermarkets", "進入 Tekapo / Mt Cook 之前，先在基督城補齊 D2-D4 的早餐、零食、飲水與簡單晚餐。", "supermarket Christchurch", "重要補給 · 湖區選擇較少"),
+      info("Fairlie 加油與短停", "Fairlie", "若油量不到半桶，可在 Fairlie 補油，避免抵達湖區後再臨時找站。", "petrol station Fairlie New Zealand", "移動日加油 · 視油量決定"),
+      info("Tekapo 鎮上小補給", "Lake Tekapo", "抵達後只做少量補貨，價格與選擇通常不如基督城。", "supermarket Lake Tekapo", "小補給 · 不適合大採買")
+    ],
     campItems: [
       camp("Lake Tekapo Motels & Holiday Park", "湖邊位置方便，適合散步到湖岸與教堂區域。", "Lake Tekapo Motels & Holiday Park New Zealand"),
       camp("Peppers Bluewater Resort", "鎮上大型度假飯店，房型從飯店房到多房 villa，適合多人分房優先查詢。", "Peppers Bluewater Resort Lake Tekapo New Zealand"),
@@ -331,6 +387,15 @@ const structuredDays = {
       info("隱士飯店景觀休息", "The Hermitage Hotel", "不想走完整步道的同行者，可以在飯店景觀餐廳遠眺雪山。", "The Hermitage Hotel Mount Cook New Zealand"),
       info("雪山直升機體驗", "Mount Cook Ski Planes & Helicopters", "想用省體力方式看冰河與高山景色，可以查詢直升機或冰河降落行程。", "Mount Cook Ski Planes and Helicopters New Zealand")
     ],
+    foodItems: [
+      info("自備午餐 / 野餐", "Lake Pukaki / Mount Cook", "這天餐飲選擇少，建議前一天準備三明治、飯糰、零食與熱飲。", "Lake Pukaki picnic area", "主建議 · 不依賴餐廳"),
+      info("The Hermitage Hotel", "Mount Cook", "不走完整步道的同行者，可在飯店區域找景觀休息與簡餐。", "The Hermitage Hotel Mount Cook", "備案 · 以當日營業為準")
+    ],
+    supplyItems: [
+      info("Tekapo 出發前補水", "Lake Tekapo", "離開 Tekapo 前把飲用水、熱水與步道零食準備好。", "Lake Tekapo supermarket", "步道日補給 · 早上完成"),
+      info("Lake Pukaki Visitor Centre", "Lake Pukaki", "可短停上廁所、拍照與確認車上飲水零食。", "Lake Pukaki Visitor Centre", "中停檢查 · 非大採買點"),
+      info("Mt Cook 前油量確認", "Twizel / Tekapo", "進 Mt Cook 前油量最好保持充足，不要等到山區才處理。", "petrol station Twizel", "加油提醒 · 出發前確認")
+    ],
     campItems: [
       camp("Glentanner Holiday Park Centre", "庫克山區域露營車友善營地，景色開闊，適合作為充電與補給點。", "Glentanner Holiday Park Centre New Zealand"),
       camp("White Horse Hill Campground", "更靠近步道口，但設施較基本，適合想貼近庫克山的人。", "White Horse Hill Campground Mount Cook New Zealand")
@@ -346,6 +411,15 @@ const structuredDays = {
       info("瓦納卡湖畔散步", "Lake Wanaka", "不進 Puzzling World 的同行者，可以直接到湖邊散步看景。", "Lake Wanaka New Zealand"),
       info("瓦納卡孤獨樹", "That Wanaka Tree", "傍晚可安排拍照與湖邊放空，是瓦納卡代表性景點。", "That Wanaka Tree New Zealand"),
       info("湖景咖啡廳", "Wanaka town centre", "想更慢一點的人，可以在鎮上找湖景咖啡廳休息。", "Wanaka town centre New Zealand")
+    ],
+    foodItems: [
+      info("High Country Salmon", "Twizel", "鮭魚餐、魚店與餵魚一次完成，是 D4 最穩的午餐/補給點。", "High Country Salmon Twizel", "主推薦 · 官方營業時間已查"),
+      info("Big Fig Wanaka", "Wanaka", "Wanaka 鎮上 casual 備案，適合不想正式訂位的晚餐或外帶。", "Big Fig Wanaka", "備案 · 以當日營業為準")
+    ],
+    supplyItems: [
+      info("High Country Salmon 冷藏補貨", "Twizel", "可買鮭魚或簡單食材帶上車，記得確認冰箱空間。", "High Country Salmon Twizel", "食材補給 · 注意冷藏"),
+      info("Wanaka 鎮上超市", "Wanaka", "抵達後可補 D5 早餐、零食與簡單晚餐食材。", "supermarket Wanaka", "中型補給 · 比 Mt Cook 方便"),
+      info("Wanaka / Twizel 加油", "Twizel or Wanaka", "穿越 Lindis Pass 前後確認油量，Twizel 或 Wanaka 都比山路中間安心。", "petrol station Wanaka", "加油提醒 · 山路前後確認")
     ],
     campItems: [
       camp("Hampshire Holiday Parks - Wanaka", "離湖岸與鎮上近，適合傍晚散步和補給。", "Hampshire Holiday Parks Wanaka New Zealand"),
@@ -363,6 +437,17 @@ const structuredDays = {
       info("Fergburger", "Fergburger Queenstown", "想朝聖皇后鎮名店，可以安排外帶或錯峰用餐。", "Fergburger Queenstown New Zealand"),
       info("Skyline 山頂景觀", "Skyline Queenstown", "想看卓越山脈與湖景，可以搭纜車上山頂觀景台。", "Skyline Queenstown New Zealand")
     ],
+    foodItems: [
+      info("The Stoaker Room Cromwell", "Cromwell", "克倫威爾午餐主選，若全團一起吃建議先訂位。", "The Stoaker Room Cromwell", "午餐主推 · 官方時間已查"),
+      info("Hook Wanaka", "Wanaka", "D4 週一休息不適合安排；若 D5 早上想在瓦納卡多留一點，可作為現釣鮭魚與輕食備案，最後租竿 16:30。", "Hook Wanaka", "隔天備案 · 週二可確認"),
+      info("Arrowtown Bakery", "Arrowtown", "箭鎮散步時的派與點心備案，適合外帶分食。", "Arrowtown Bakery", "點心備案 · 以當日營業為準"),
+      info("Fergburger", "Queenstown", "抵達皇后鎮後的經典外帶選項，建議錯峰或拆小組買。", "Fergburger Queenstown", "晚餐/宵夜 · 排隊預期")
+    ],
+    supplyItems: [
+      info("Cromwell 水果與簡單補給", "Cromwell", "水果鎮適合補水果、點心與隔天路上零食。", "fruit shop Cromwell New Zealand", "路上補給 · 順路即可"),
+      info("Queenstown 超市補貨", "Queenstown", "抵達後補 D6 早餐、車上零食與 Te Anau 前的基本食材。", "supermarket Queenstown", "城市補給 · 入 Te Anau 前可補齊"),
+      info("Queenstown 前後加油", "Queenstown", "皇后鎮到 Te Anau 前建議油量充足，避免隔天早上趕路。", "petrol station Queenstown", "加油提醒 · D6 前準備")
+    ],
     campItems: [
       camp("Queenstown TOP 10 Holiday Park", "皇后鎮周邊設施完整的露營車選項。", "Queenstown TOP 10 Holiday Park New Zealand"),
       camp("Queenstown Creekside Holiday Park", "距離市區較方便，適合想接近餐廳與湖畔的人。", "Queenstown Creekside Holiday Park New Zealand")
@@ -378,6 +463,16 @@ const structuredDays = {
       info("皇后鎮市區慢活", "Queenstown town centre", "不想看動物的人，可以留在市區逛街、喝咖啡或湖邊散步。", "Queenstown town centre New Zealand"),
       info("蒂阿瑙湖畔夕陽", "Lake Te Anau", "晚上不進螢火蟲洞的人，可以在湖邊散步看夕陽。", "Lake Te Anau New Zealand"),
       info("峽灣電影", "Fiordland Cinema", "用室內方式先認識峽灣地景，適合天氣不佳或想休息的同行者。", "Fiordland Cinema Te Anau New Zealand")
+    ],
+    foodItems: [
+      info("Fergbaker", "Queenstown", "早上離開皇后鎮前可買麵包、派與路上點心。", "Fergbaker Queenstown", "早餐/外帶 · 排隊預期"),
+      info("Flame Bar & Grill", "Queenstown", "若 D5 沒吃到，可作為皇后鎮晚餐備案；20 人建議訂位。", "Flame Bar Grill Queenstown", "備案晚餐 · 建議訂位"),
+      info("Redcliff Cafe", "Te Anau", "抵達 Te Anau 後的晚餐候選，若螢火蟲行程前後用餐需先確認時間。", "Redcliff Cafe Te Anau", "晚餐候選 · 先訂位/確認")
+    ],
+    supplyItems: [
+      info("Queenstown 出發前補貨", "Queenstown", "前往 Te Anau 前補齊 D7 day tour 的早餐、零食與飲水。", "supermarket Queenstown", "重要補給 · D7 前準備"),
+      info("Te Anau 小鎮補給", "Te Anau", "抵達後可補隔天 tour 的水、暈車藥、雨具或輕食。", "supermarket Te Anau", "小補給 · 行程前晚完成"),
+      info("不需 Milford 自駕加油", "Te Anau", "你們預計從 Te Anau 參加 day tour，不需要為 Milford 自駕特別加油。", "petrol station Te Anau", "加油提醒 · 依 tour 安排")
     ],
     campItems: [
       camp("Te Anau TOP 10 Holiday Park", "位置方便，走路可到鎮上餐廳與碼頭。", "Te Anau TOP 10 Holiday Park New Zealand"),
@@ -395,6 +490,15 @@ const structuredDays = {
       info("Kepler Track 平緩段", "Kepler Track car park", "可安排入口附近的平緩森林步道，不需要走完整步道。", "Kepler Track car park Te Anau New Zealand"),
       info("蒂阿瑙鳥類保護區", "Te Anau Bird Sanctuary", "免費且輕鬆的自然景點，適合不進峽灣的人。", "Te Anau Bird Sanctuary New Zealand")
     ],
+    foodItems: [
+      info("Day tour 午餐確認", "Te Anau tour pickup", "確認 day tour 是否含午餐；若不含，前一晚準備三明治、零食與水。", "Te Anau day tour Milford Sound pickup", "Tour day · 出發前確認"),
+      info("Te Anau 早餐外帶", "Te Anau", "清晨集合前可準備簡單早餐，不建議依賴當天早上找餐廳。", "Te Anau bakery cafe", "早出發 · 前一晚準備更穩")
+    ],
+    supplyItems: [
+      info("雨具與保暖層", "Te Anau", "Milford 天氣多變，帶雨衣、保暖層與防水袋比帶傘實用。", "Te Anau outdoor shop", "必備提醒 · 船上風大"),
+      info("暈車與船上用品", "Te Anau", "山路與遊船都可能暈，前一晚準備暈車藥、乾糧與水。", "pharmacy Te Anau", "Tour 補給 · 不需加油"),
+      info("不安排加油", "Te Anau", "今日搭 day tour，沒有露營車往返 Milford 的加油需求。", "Te Anau", "加油提醒 · 無需特別處理")
+    ],
     campItems: [
       camp("Te Anau TOP 10 Holiday Park", "續住可減少收車與換營地壓力。", "Te Anau TOP 10 Holiday Park New Zealand"),
       camp("Tasman Holiday Parks - Te Anau", "若前一晚未訂到 TOP 10，可作為備案。", "Tasman Holiday Parks Te Anau New Zealand")
@@ -409,6 +513,16 @@ const structuredDays = {
     alternativeItems: [
       info("奧維斯頓古宅", "Olveston Historic Home", "想安排室內歷史文化行程的人，可參觀百年前富豪宅邸。", "Olveston Historic Home Dunedin New Zealand"),
       info("Speight's 啤酒廠", "Speight's Brewery", "想體驗在地啤酒文化，可查詢導覽與品飲。", "Speight's Brewery Dunedin New Zealand")
+    ],
+    foodItems: [
+      info("Emerson's Brewery", "Dunedin", "抵達達尼丁後的晚餐/啤酒候選，官方描述 Tuesday-Sunday，D8 Friday 符合。", "Emerson's Brewery Dunedin", "晚餐候選 · 建議訂位"),
+      info("No.7 Balmac", "Dunedin", "正式一點的 bistro 選項，週五營業，20 人建議預約。", "No.7 Balmac Dunedin", "晚餐候選 · 官方週五營業"),
+      info("Vogel St Kitchen", "Dunedin", "比較適合早午餐或輕食，若抵達時間較早可列入備案。", "Vogel St Kitchen Dunedin", "備案 · 以當日營業為準")
+    ],
+    supplyItems: [
+      info("Te Anau 出發前備餐", "Te Anau", "今天車程長，早餐、咖啡、零食與水最好出發前處理好。", "supermarket Te Anau", "長途移動 · 車上補給"),
+      info("Gore / Balclutha 路上補給", "Gore", "中途若需要休息、加油或買咖啡，可利用 Gore 或 Balclutha。", "petrol station Gore New Zealand", "路上中停 · 視精神狀況"),
+      info("Dunedin 抵達後超市", "Dunedin", "抵達後補 D9 半島日的早餐、飲水與簡單食材。", "supermarket Dunedin", "城市補給 · D9 前準備")
     ],
     campItems: [
       camp("Dunedin Holiday Park & Motels", "靠近 St Kilda 海岸區，適合達尼丁停留與隔天前往奧塔哥半島。", "Dunedin Holiday Park & Motels New Zealand"),
@@ -426,6 +540,16 @@ const structuredDays = {
       info("拉納克城堡", "Larnach Castle", "不看鳥類或動物的人，可參觀城堡、花園並安排下午茶。", "Larnach Castle Dunedin New Zealand"),
       info("奧塔哥半島海景咖啡", "Otago Peninsula cafes", "想放慢節奏的人，可在半島找海景咖啡或簡短散步。", "Otago Peninsula cafes New Zealand")
     ],
+    foodItems: [
+      info("自備點心 / 車上輕食", "Dunedin 出發前準備", "半島行程會被信天翁中心與企鵝導覽時間切得比較碎，中午建議以自備麵包、水果、零食與飲水為主。", "supermarket Dunedin", "半島午餐 · 不依賴餐廳"),
+      info("Carey's Bay Historic Hotel", "Careys Bay", "若回程走港灣方向，可作為海鮮/酒館備案。", "Careys Bay Historic Hotel", "晚餐備案 · 建議訂位"),
+      info("Emerson's Brewery", "Dunedin", "若 D8 沒去，D9 Saturday 也符合官方 Tuesday-Sunday。", "Emerson's Brewery Dunedin", "Dunedin 晚餐 · 建議訂位")
+    ],
+    supplyItems: [
+      info("半島出發前補水", "Dunedin", "半島景點間距離拉長，出發前帶好水、零食與防風衣物。", "supermarket Dunedin", "生態日補給 · 車上備用"),
+      info("Portobello 小補給", "Portobello", "半島上可小補給或上廁所，但不適合依賴大採買。", "Portobello Otago Peninsula", "小鎮中停 · 選擇有限"),
+      info("油量半桶以上", "Dunedin", "半島來回不算極端，但建議出發前至少半桶油，避免傍晚回程找站。", "petrol station Dunedin", "加油提醒 · 出發前確認")
+    ],
     campItems: [
       camp("Dunedin Holiday Park & Motels", "續住可減少移動，活動結束後直接回營地休息。", "Dunedin Holiday Park & Motels New Zealand"),
       camp("Leith Valley Holiday Park and Motels", "若想住得離市區更近，可作為第二選擇。", "Leith Valley Holiday Park and Motels Dunedin New Zealand"),
@@ -442,6 +566,16 @@ const structuredDays = {
       info("奧馬魯古董與工藝小店", "Oamaru Victorian Precinct", "同行大人可逛古董書店、羊毛製品與工藝品店。", "Oamaru Victorian Precinct New Zealand"),
       info("Riverside Market 晚餐", "Riverside Market Christchurch", "若回到基督城仍有體力，可安排較豐富的最後晚餐。", "Riverside Market Christchurch New Zealand")
     ],
+    foodItems: [
+      info("Riverstone Kitchen", "Oamaru / Waitaki", "Oamaru 附近食物停靠點，D10 是 Sunday，出發前要確認當日營業。", "Riverstone Kitchen Oamaru", "午餐候選 · Sunday 需確認"),
+      info("Cucina Oamaru", "Oamaru", "Oamaru 鎮上餐廳候選，若 Sunday 有營業可作為午餐。", "Cucina Oamaru", "備案 · Sunday 需確認"),
+      info("Formosa Modern Asian Cuisine", "Ashburton", "回 Christchurch 途中 Ashburton 備案，不是 Oamaru 餐廳。", "Formosa Modern Asian Cuisine Ashburton", "回程備案 · 位置在 Ashburton")
+    ],
+    supplyItems: [
+      info("Dunedin 出發前補油", "Dunedin", "北返基督城距離長，離開 Dunedin 前先補滿油最省心。", "petrol station Dunedin", "長途日 · 建議滿油出發"),
+      info("Oamaru / Ashburton 中停補給", "Oamaru", "可在 Oamaru 或 Ashburton 休息、上廁所、買咖啡與零食。", "supermarket Oamaru", "長途中停 · 彈性安排"),
+      info("基督城抵達後整理採買", "Christchurch", "回到基督城後只需補最後一晚簡單食物與還車前用品。", "supermarket Christchurch", "最後補給 · 不做大採買")
+    ],
     campItems: [
       camp("North South Holiday Park", "靠近機場與隔天還車點，方便整理車輛與行李。", "North South Holiday Park Christchurch New Zealand"),
       camp("Christchurch TOP 10 Holiday Park", "若想設施更完整，也可選擇基督城 TOP 10。", "Christchurch TOP 10 Holiday Park New Zealand")
@@ -456,6 +590,16 @@ const structuredDays = {
     alternativeItems: [
       info("國際南極中心", "International Antarctic Centre", "若入住後時間還早，可安排機場旁的南極體驗館。", "International Antarctic Centre Christchurch New Zealand"),
       info("機場周邊簡餐", "Christchurch Airport restaurants", "不想再進市區的話，可在機場周邊簡單用餐。", "Christchurch Airport restaurants New Zealand")
+    ],
+    foodItems: [
+      info("Little High Eatery", "Christchurch", "若還車後進市區，適合最後聚餐、分頭點餐。", "Little High Eatery Christchurch", "最後聚餐 · 彈性選擇"),
+      info("C1 Espresso", "Christchurch", "還車後有空檔可安排咖啡或早午餐，適合小組行動。", "C1 Espresso Christchurch", "咖啡備案 · 以當日營業為準"),
+      info("機場周邊簡餐", "Christchurch Airport", "若隔天飛機時間早，留在機場周邊吃簡單一餐最輕鬆。", "Christchurch Airport restaurants", "低壓備案 · 不再進市區")
+    ],
+    supplyItems: [
+      info("還車前加滿油與瓦斯", "Christchurch", "依租車公司規定補滿油、瓦斯並清空灰水黑水，保留檢查時間。", "petrol station Christchurch Airport", "還車必做 · 早上優先處理"),
+      info("最後行李整理", "Airport hotel", "把露營車用品分裝回行李，液體與食物處理好，避免還車時手忙腳亂。", "Sudima Christchurch Airport", "行李提醒 · 入住前完成"),
+      info("不再大採買", "Christchurch", "今天以還車與住宿為主，只保留機場/飯店周邊簡單補給。", "Christchurch Airport convenience store", "補給策略 · 越簡單越好")
     ],
     campItems: [
       camp("Sudima Christchurch Airport", "機場旁住宿，接駁方便，適合隔天搭機。", "Sudima Christchurch Airport New Zealand"),
@@ -540,6 +684,10 @@ function renderDayPage() {
     document.querySelector("#dayCampHeading").textContent = structuredDay.campHeading || day.stayType || "營地建議";
     renderInfoList(primaryList, structuredDay.primaryItems || []);
     renderInfoList(document.querySelector("#dayAlternativeList"), structuredDay.alternativeItems || []);
+    renderInfoList(document.querySelector("#dayFoodList"), structuredDay.foodItems || []);
+    renderInfoList(document.querySelector("#daySupplyList"), structuredDay.supplyItems || []);
+    toggleOptionalSection("#dayFoodSection", structuredDay.foodItems);
+    toggleOptionalSection("#daySupplySection", structuredDay.supplyItems);
     renderCampList(document.querySelector("#dayCampList"), structuredDay.campItems || []);
   } else {
     document.querySelector("#detailMain").textContent = day.main;
@@ -575,9 +723,15 @@ function renderInfoList(container, items) {
         <p>${item.description}</p>
       </div>
       <a href="${mapSearchUrl(item.mapQuery)}" target="_blank" rel="noreferrer">地圖資訊</a>
-      <span>${item.location}</span>
+      <span>${item.meta ? `${item.location} · ${item.meta}` : item.location}</span>
     </article>
   `).join("");
+}
+
+function toggleOptionalSection(selector, items) {
+  const section = document.querySelector(selector);
+  if (!section) return;
+  section.hidden = !items || items.length === 0;
 }
 
 function renderCampList(container, items) {
@@ -596,8 +750,8 @@ function renderCampList(container, items) {
 renderLandingMap();
 renderDayPage();
 
-function info(title, location, description, mapQuery) {
-  return { title, location, description, mapQuery };
+function info(title, location, description, mapQuery, meta) {
+  return { title, location, description, mapQuery, meta };
 }
 
 function camp(title, description, mapQuery) {
