@@ -330,7 +330,7 @@ const days = [
     ],
     main: "早上整理露營車並依 Maui 合約確認清潔、廢水、油料、AdBlue 與 LPG 要求，再前往 159 Orchard Road 辦理還車。交車後搭 Maui 接駁車到機場，步行前往 LyLo Christchurch Airport 入住。",
     stay: "LyLo Christchurch Airport",
-    stayType: "已預定住宿",
+    stayType: "暫定住宿",
     alt: "若辦理完入住後時間還早，可以步行前往機場旁邊的國際南極中心。裡面有極地風暴模擬、全地形越野車，還能看到小藍企鵝與哈士奇。",
     image: "../assets/day-11-christchurch-tram.jpg"
   }
@@ -569,7 +569,7 @@ const structuredDays = {
     primaryItems: [
       info("露營車最後整理", "Tasman Holiday Parks - Christchurch", "清理車內並依 Maui 合約處理灰水、黑水、燃油與 LPG；Premium Pack 以合約內容為準。", "Tasman Holiday Parks Christchurch", "還車提醒 · 前一晚可先整理"),
       info("Maui Christchurch Airport 還車", "159 Orchard Road", "預留車況檢查、文件與接駁時間；是否補滿燃油與 LPG 依實際租車方案。", "Maui Christchurch Airport 159 Orchard Road", "還車地點 · 159 Orchard Road"),
-      info("入住 LyLo Christchurch Airport", "5 Peter Leeming Road", "搭 Maui 接駁回機場後，步行前往 LyLo 入住並整理行李。", "LyLo Christchurch Airport", "已預定 · 12/7")
+      info("入住 LyLo Christchurch Airport", "5 Peter Leeming Road", "搭 Maui 接駁回機場後，步行前往 LyLo 入住並整理行李。", "LyLo Christchurch Airport", "暫定 · 12/7")
     ],
     alternativeItems: [
       info("國際南極中心", "International Antarctic Centre", "若入住後時間還早，可安排機場旁的南極體驗館。", "International Antarctic Centre Christchurch New Zealand"),
@@ -586,9 +586,15 @@ const structuredDays = {
       info("Woolworths Spitfire Square", "1 Spitfire Square", "還車後若需買飲水或隔天早餐，可在 LyLo 附近少量補充，不再做大採買。", "Woolworths Spitfire Square", "住宿附近 · 07:00–22:00")
     ],
     campItems: [
-      bookedStay("LyLo Christchurch Airport", "機場周邊住宿已完成預訂；Maui 還車後可搭接駁回機場，再步行前往 LyLo。", "LyLo Christchurch Airport", "12/7 · 基督城機場")
+      {
+        title: "LyLo Christchurch Airport",
+        description: "目前暫定入住機場周邊的 LyLo；Maui 還車後可搭接駁回機場，再步行前往住宿。",
+        mapQuery: "LyLo Christchurch Airport",
+        meta: "12/7 · 基督城機場",
+        status: "暫定"
+      }
     ],
-    campHeading: "已預定住宿"
+    campHeading: "暫定住宿"
   }
 };
 
