@@ -826,10 +826,46 @@ select {
   line-height: 1.25;
 }
 
+.camp-item__heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+}
+
+.camp-item__heading h3 {
+  margin-bottom: 0;
+}
+
+.booking-status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #e5eee5;
+  color: #315a3a;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
 .info-item p,
 .camp-item p {
   margin-bottom: 0;
   color: var(--muted);
+}
+
+.camp-item__heading + p {
+  margin-top: 7px;
+}
+
+.camp-item__meta {
+  display: block;
+  margin-top: 9px;
+  color: var(--clay-dark);
+  font-size: 13px;
+  font-weight: 800;
 }
 
 .info-item a,
