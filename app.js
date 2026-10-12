@@ -235,13 +235,14 @@ const days = [
     labelCoords: { x: 12, y: 59 },
     highlight: "峽灣船",
     icon: "⛴️",
-    stops: ["Te Anau TOP 10", "Milford Sound day tour", "Te Anau TOP 10"],
+    stops: ["Te Anau TOP 10", "RealNZ Visitor Centre", "Milford Sound day tour", "Te Anau TOP 10"],
     routePlaces: [
       "Te Anau TOP 10 Holiday Park, New Zealand",
+      "RealNZ Visitor Centre 85 Lakefront Drive Te Anau, New Zealand",
       "Milford Sound Visitor Terminal, New Zealand",
       "Te Anau TOP 10 Holiday Park, New Zealand"
     ],
-    main: "清晨從 Te Anau 參加 Milford Sound day tour，由行程巴士負責米佛公路往返。抵達後搭乘巡航船深入峽灣，近距離感受萬年冰川瀑布並尋找海豹；晚上回到同一個營地續住。",
+    main: "已預訂 RealNZ 米佛峽灣特色遊船與 Te Anau 巴士往返。12/3 早上 07:10 前到 RealNZ Visitor Centre 前台報到，07:30 出發、15:00 返回；共 12 位成人與 2 位嬰兒，行程包含 14 份午餐盒。",
     stay: "Te Anau TOP 10 Holiday Park（續住）",
     stayType: "已預定住宿",
     alt: "若有同行者不想舟車勞頓，可以留在蒂阿瑙小鎮放空。白天可以沿著 Kepler Track 入口處的平緩森林慢步，或去免費的蒂阿瑙鳥類保護區。",
@@ -330,7 +331,7 @@ const days = [
     ],
     main: "早上整理露營車並依 Maui 合約確認清潔、廢水、油料、AdBlue 與 LPG 要求，再前往 159 Orchard Road 辦理還車。交車後搭 Maui 接駁車到機場，步行前往 LyLo Christchurch Airport 入住。",
     stay: "LyLo Christchurch Airport",
-    stayType: "暫定住宿",
+    stayType: "已預定住宿",
     alt: "若辦理完入住後時間還早，可以步行前往機場旁邊的國際南極中心。裡面有極地風暴模擬、全地形越野車，還能看到小藍企鵝與哈士奇。",
     image: "../assets/day-11-christchurch-tram.jpg"
   }
@@ -467,9 +468,9 @@ const structuredDays = {
   },
   7: {
     primaryItems: [
-      info("Day tour 集合出發", "Te Anau TOP 10 Holiday Park", "依旅行社通知的時間與地點集合，搭乘 day tour 巴士前往 Milford Sound。", "Te Anau TOP 10 Holiday Park", "集合資訊 · 前一晚再次確認"),
-      info("米佛公路沿途", "Milford Road", "由司機帶隊通過山路與 Homer Tunnel，停靠點依當天天氣及旅行社安排。", "Milford Road New Zealand"),
-      info("米佛峽灣遊船", "Milford Sound Visitor Terminal", "搭船深入峽灣看瀑布、峭壁與野生動物，是這天的主力體驗。", "Milford Sound Visitor Terminal New Zealand")
+      info("RealNZ Visitor Centre 集合", "85 Lakefront Drive, Te Anau", "請在 07:10 前到 Te Anau Visitor Centre 前台辦理報到，搭乘 07:30 出發的巴士。", "RealNZ Visitor Centre 85 Lakefront Drive Te Anau", "已預訂 · 07:10 前報到"),
+      info("米佛公路景觀巴士", "Te Anau → Milford Sound", "由 RealNZ 巴士往返米佛公路，沿途停靠依當天天氣與行程安排。", "Milford Road New Zealand", "07:30 出發 · 不需自駕"),
+      info("米佛峽灣特色遊船", "Milford Sound Visitor Terminal", "搭船欣賞峽灣瀑布、峭壁與野生動物，行程預計 15:00 返回 Te Anau。", "Milford Sound Visitor Terminal New Zealand", "已預訂 · 12 位成人＋2 位嬰兒")
     ],
     alternativeItems: [
       info("蒂阿瑙小鎮休息", "Te Anau town centre", "不想長時間拉車的同行者，可以留在鎮上慢慢休息。", "Te Anau town centre New Zealand"),
@@ -477,12 +478,13 @@ const structuredDays = {
       info("蒂阿瑙鳥類保護區", "Te Anau Bird Sanctuary", "免費且輕鬆的自然景點，適合不進峽灣的人。", "Te Anau Bird Sanctuary New Zealand")
     ],
     foodItems: [
-      info("Day tour 午餐確認", "Te Anau tour pickup", "確認 day tour 是否含午餐；若不含，前一晚準備三明治、零食與水。", "Te Anau day tour Milford Sound pickup", "Tour day · 出發前確認"),
-      info("Te Anau 早餐外帶", "Te Anau", "清晨集合前可準備簡單早餐，不建議依賴當天早上找餐廳。", "Te Anau bakery cafe", "早出發 · 前一晚準備更穩")
+      info("午餐盒已包含", "RealNZ Milford Sound day tour", "訂單包含 14 份午餐盒，不需要另外準備午餐；若有飲食禁忌，依業者期限提前確認。", "RealNZ Visitor Centre Te Anau", "已預訂 · 14 份午餐盒"),
+      info("早餐前一晚備妥", "Te Anau", "集合時間早，建議前一晚準備簡單早餐與飲水，不依賴當天早上找餐廳。", "FreshChoice Te Anau", "早出發 · 07:10 前報到"),
+      info("船上飲品與小吃", "Milford Sound cruise", "船上可購買飲品與小吃，但只接受刷卡、不收現金。", "Milford Sound Visitor Terminal", "船上消費 · Card only")
     ],
     supplyItems: [
-      info("FreshChoice 前一晚備妥", "5 Milford Crescent", "前一晚準備早餐、飲水與 day tour 點心，清晨不必臨時找店。", "FreshChoice Te Anau", "住宿附近 · 07:00–20:00"),
-      info("雨具、保暖與暈車用品", "Te Anau", "Milford 天氣多變且山路彎曲，帶雨衣、保暖層、防水袋與暈車藥。", "pharmacy Te Anau", "Tour 補給 · 前一晚完成"),
+      info("FreshChoice 前一晚備妥", "5 Milford Crescent", "前一晚準備早餐、飲水與個人點心，清晨不必臨時找店。", "FreshChoice Te Anau", "住宿附近 · 07:00–20:00"),
+      info("雨具、保暖與暈車用品", "Te Anau", "建議攜帶防滑鞋、防水外套、保暖層、防曬、驅蟲用品與個人藥物；山路與遊船容易暈的人先備藥。", "pharmacy Te Anau", "Tour 補給 · 前一晚完成"),
       info("不安排加油", "Te Anau", "今日搭 day tour，沒有露營車往返 Milford 的加油需求。", "Te Anau", "加油提醒 · 無需特別處理")
     ],
     campItems: [
@@ -569,7 +571,7 @@ const structuredDays = {
     primaryItems: [
       info("露營車最後整理", "Tasman Holiday Parks - Christchurch", "清理車內並依 Maui 合約處理灰水、黑水、燃油與 LPG；Premium Pack 以合約內容為準。", "Tasman Holiday Parks Christchurch", "還車提醒 · 前一晚可先整理"),
       info("Maui Christchurch Airport 還車", "159 Orchard Road", "預留車況檢查、文件與接駁時間；是否補滿燃油與 LPG 依實際租車方案。", "Maui Christchurch Airport 159 Orchard Road", "還車地點 · 159 Orchard Road"),
-      info("入住 LyLo Christchurch Airport", "5 Peter Leeming Road", "搭 Maui 接駁回機場後，步行前往 LyLo 入住並整理行李。", "LyLo Christchurch Airport", "暫定 · 12/7")
+      info("入住 LyLo Christchurch Airport", "5 Peter Leeming Road", "搭 Maui 接駁回機場後，步行前往 LyLo 入住並整理行李。", "LyLo Christchurch Airport", "已預定 · 12/7")
     ],
     alternativeItems: [
       info("國際南極中心", "International Antarctic Centre", "若入住後時間還早，可安排機場旁的南極體驗館。", "International Antarctic Centre Christchurch New Zealand"),
@@ -588,13 +590,13 @@ const structuredDays = {
     campItems: [
       {
         title: "LyLo Christchurch Airport",
-        description: "目前暫定入住機場周邊的 LyLo；Maui 還車後可搭接駁回機場，再步行前往住宿。",
+        description: "機場周邊住宿已完成預訂；Maui 還車後可搭接駁回機場，再步行前往 LyLo。",
         mapQuery: "LyLo Christchurch Airport",
         meta: "12/7 · 基督城機場",
-        status: "暫定"
+        status: "已預定"
       }
     ],
-    campHeading: "暫定住宿"
+    campHeading: "已預定住宿"
   }
 };
 
