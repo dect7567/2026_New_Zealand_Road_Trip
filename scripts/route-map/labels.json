@@ -1,0 +1,27 @@
+{
+  "note": "Label anchors are offsets in SVG user units from the projected station. Change this table and rerun scripts/build-route-map.mjs; do not hand-edit assets/route-map.svg coordinates.",
+  "viewBox": { "width": 800, "height": 920, "pad": 140 },
+  "font": { "desktop": 22, "mobile": 22 },
+  "desktop": {
+    "christchurch": { "side": "right", "dx": 48, "dy": -20, "text": "D1/D11 基督城" },
+    "tekapo":       { "side": "right", "dx": 44, "dy": 18 },
+    "mount-cook":   { "side": "left",  "dx": -44, "dy": -20 },
+    "wanaka":       { "side": "top",   "dx": -24, "dy": -40 },
+    "queenstown":   { "side": "bottom","dx": 8, "dy": 40 },
+    "te-anau":      { "side": "left",  "dx": -40, "dy": 24 },
+    "milford":      { "side": "left",  "dx": -36, "dy": -28 },
+    "dunedin":      { "side": "right", "dx": 44, "dy": 26, "text": "D8/D9 達尼丁" },
+    "oamaru":       { "side": "right", "dx": 44, "dy": 2 }
+  },
+  "mobile": {
+    "christchurch": { "side": "right", "dx": 44, "dy": -20, "text": "D1/D11 基督城" },
+    "tekapo":       { "side": "right", "dx": 40, "dy": 18 },
+    "mount-cook":   { "side": "left",  "dx": -40, "dy": -20 },
+    "wanaka":       { "side": "top",   "dx": -20, "dy": -38 },
+    "queenstown":   { "side": "bottom","dx": 8, "dy": 38 },
+    "te-anau":      { "side": "left",  "dx": -36, "dy": 24 },
+    "milford":      { "side": "left",  "dx": -34, "dy": -28, "text": "D7 米佛" },
+    "dunedin":      { "side": "right", "dx": 40, "dy": 26, "text": "D8/D9 達尼丁" },
+    "oamaru":       { "side": "right", "dx": 40, "dy": 2 }
+  }
+}

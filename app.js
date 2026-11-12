@@ -657,55 +657,18 @@ function renderSiteNav() {
 function renderRouteMap() {
   const container = document.querySelector("#routeMap");
   if (!container) return;
-  const ns = "http://www.w3.org/2000/svg";
-  const element = (tag, attributes, parent) => {
-    const node = document.createElementNS(ns, tag);
-    Object.entries(attributes).forEach(([key, value]) => node.setAttribute(key, value));
-    parent?.append(node);
-    return node;
-  };
-  const svg = element("svg", { viewBox: "-48 8 194 170", "aria-labelledby": "routeMapTitle routeMapDesc" });
-  element("title", { id: "routeMapTitle" }, svg).textContent = "南島 11 天環島路線";
-  element("desc", { id: "routeMapDesc" }, svg).textContent = "依每日行程連線的示意圖。點選日期標籤進入當天行程；細線為南島輪廓，非實際行車道路。";
-  const leaders = element("g", { "aria-hidden": "true" }, svg);
-  // The opaque outline covers leader segments on land. The outline uses the original map's 100 × 150 coordinate system.
-  element("path", {
-    class: "route-map__coast",
-    d: "M85 25 91 22 88 31 94 28 91 37 85 44 82 48 82 53 86 55 80 58 77 62 75 70 72 77 69 87 67 98 67 106 63 109 65 113 61 119 55 123 48 125 41 131 33 134 25 132 19 135 14 131 8 133 7 128 11 124 5 123 8 117 5 115 10 108 8 105 13 99 16 94 19 89 22 83 27 76 31 70 37 63 41 57 46 51 52 45 57 39 63 35 66 30 72 27 76 22 80 26Z"
-  }, svg);
-  element("polyline", {
-    class: "route-map__line",
-    points: days.map(({ coords }) => `${coords.x},${coords.y * 1.5}`).join(" ")
-  }, svg);
-
-  // Keep both label columns outside the coast; preserve the itinerary coordinates.
-  const lanes = [[], []];
-  days.forEach((day) => lanes[day.coords.x < 50 ? 0 : 1].push(day));
-  lanes.forEach((lane, laneIndex) => {
-    lane.sort((a, b) => a.coords.y - b.coords.y || a.day - b.day);
-    let previousY = 3;
-    lane.forEach((day, index) => {
-      const x = laneIndex === 0 ? -22 : 120;
-      const maximumY = 164 - (lane.length - index - 1) * 25;
-      const y = Math.min(maximumY, Math.max(previousY + 25, day.coords.y * 1.5));
-      previousY = y;
-      const pointY = day.coords.y * 1.5;
-      element("path", { class: "route-map__leader", d: `M${day.coords.x} ${pointY} L${x} ${y}` }, leaders);
-      const link = element("a", { href: dayUrl(day), "aria-label": `Day ${day.day} · ${day.date} · ${day.title} · ${day.highlight}` }, svg);
-      element("title", {}, link).textContent = `${day.date} · ${day.title} · ${day.highlight}`;
-      element("circle", { class: "route-map__dot", cx: day.coords.x, cy: pointY, r: 1.9 }, link);
-      element("rect", { class: "route-map__label-bg", x: x - 24, y: y - 12.5, width: 48, height: 25, rx: 1.5 }, link);
-      // Use the destination in arrow-separated titles, shortened to the station name.
-      const stops = day.title.split("→").map((stop) => stop.trim());
-      const home = days[0].title.split("取")[0];
-      const destination = stops.length > 2 && (stops[0] === stops.at(-1) || stops.at(-1) === home)
-        ? stops.at(-2) : stops.at(-1);
-      const station = day.title.includes("還車") ? day.title.split("還車")[0]
-        : destination.split(/[：取還自]/)[0];
-      element("text", { class: "route-map__label", x, y: y + 1.6, "text-anchor": "middle" }, link).textContent = `D${day.day} ${station}`;
+  const svgUrl = new URL("assets/route-map.svg", document.baseURI);
+  fetch(svgUrl)
+    .then((response) => {
+      if (!response.ok) throw new Error(`route map ${response.status}`);
+      return response.text();
+    })
+    .then((markup) => {
+      container.innerHTML = markup;
+    })
+    .catch(() => {
+      container.textContent = "路線圖無法載入。請重新整理，或確認 assets/route-map.svg 存在。";
     });
-  });
-  container.replaceChildren(svg);
 }
 
 function setupPersistentChecklist() {

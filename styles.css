@@ -304,16 +304,18 @@ h1, h2, h3, p { margin-top: 0; }
   .map-landing { grid-template-columns: 1.05fr 1fr; gap: 32px; padding: 28px 0 24px; border-bottom: 1px solid var(--line); }
   .landing-copy h1 { font-size: clamp(32px, 3.8vw, 54px); }
   .landing-copy p:not(.eyebrow) { max-width: 560px; }
-  .route-map { width: 100%; height: 450px; min-width: 0; overflow-x: auto; }
+  .route-map { width: 100%; height: 600px; min-width: 0; overflow: visible; }
   .route-map > svg { display: block; width: 100%; min-width: 0; height: 100%; overflow: visible; }
-  .route-map__coast { fill: #eeeee4; stroke: #a8b4ac; stroke-width: .45; stroke-linejoin: round; }
-  .route-map__line { fill: none; stroke: var(--accent); stroke-width: 1; stroke-linejoin: round; stroke-linecap: round; }
-  .route-map__leader { fill: none; stroke: var(--accent); stroke-opacity: .4; stroke-width: .35; }
-  .route-map__dot { fill: var(--paper); stroke: var(--accent); stroke-width: .8; }
-  .route-map__label-bg { fill: transparent; stroke: transparent; stroke-width: .6; }
-  .route-map__label { fill: var(--accent); font-family: "Noto Sans TC", sans-serif; font-weight: 600; font-size: 5.3px; paint-order: stroke; stroke: var(--paper); stroke-width: 1.6px; stroke-linejoin: round; pointer-events: none; }
+  .route-map__coast { fill: #eeeee4; stroke: #a8b4ac; stroke-width: 1.1; stroke-linejoin: round; }
+  .route-map__line { fill: none; stroke: var(--accent); stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+  .route-map__line--spur { stroke-dasharray: 7 5; }
+  .route-map__leader { fill: none; stroke: var(--accent); stroke-opacity: .45; stroke-width: .9; }
+  .route-map__dot { fill: var(--paper); stroke: var(--accent); stroke-width: 1.6; }
+  .route-map__label-bg { fill: transparent; stroke: transparent; stroke-width: .8; }
+  .route-map__label { fill: var(--accent); font-family: "Noto Sans TC", sans-serif; font-weight: 600; paint-order: stroke; stroke: var(--paper); stroke-width: 4px; stroke-linejoin: round; pointer-events: none; }
   .route-map a:hover .route-map__label-bg, .route-map a:focus-visible .route-map__label-bg { stroke: var(--accent); fill: var(--surface); }
   .route-map a:hover .route-map__dot { fill: var(--accent); }
+  .route-map__annos--mobile { display: none; }
   .day-directory { padding-top: 28px; scroll-margin-top: 84px; }
   .section-heading .eyebrow { margin-bottom: 6px; }
   .section-heading h2 { margin-bottom: 0; }
@@ -347,10 +349,13 @@ h1, h2, h3, p { margin-top: 0; }
     .site-nav__inner, .reference-shell { width: calc(100% - 80px); }
     .site-nav a { padding-inline: 10px; }
     .site-nav__brand { font-size: 14px; }
-    .route-map { height: 390px; }
+    .route-map { height: 520px; }
   }
   @media (max-width: 767px) {
     body { padding-top: 0; padding-bottom: calc(68px + env(safe-area-inset-bottom)); }
+    .route-map { height: 420px; }
+    .route-map__annos--desktop { display: none; }
+    .route-map__annos--mobile { display: block; }
     .site-nav { inset: auto 0 0; height: calc(68px + env(safe-area-inset-bottom)); padding-bottom: env(safe-area-inset-bottom); border-top: 1px solid var(--line); border-bottom: 0; }
     .site-nav__inner { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; width: 100%; padding-inline: 6px; }
     .site-nav__brand { display: none; }
@@ -378,7 +383,9 @@ h1, h2, h3, p { margin-top: 0; }
     .landing-copy p:not(.eyebrow) { font-size: 16px; line-height: 1.8; }
     .journey-date { font-size: 13px; margin-bottom: 10px; letter-spacing: 0; }
     .landing-actions { margin-top: 16px; gap: 8px; }
-    .route-map { height: 390px; }
+    .route-map { height: 420px; }
+    .route-map__annos--desktop { display: none; }
+    .route-map__annos--mobile { display: block; }
     .day-directory { padding-top: 18px; scroll-margin-top: 16px; }
     .section-heading { margin-bottom: 16px; }
     .section-heading .eyebrow { font-size: 13px; }
