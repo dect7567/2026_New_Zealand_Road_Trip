@@ -2,13 +2,13 @@
 <html lang="zh-Hant">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>紐西蘭南島環島路線</title>
-    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&family=Noto+Serif+TC:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <main class="landing-shell">
+    <a class="skip-link" href="#dayDirectory">跳到每日行程</a><main class="landing-shell">
       <section class="map-landing" aria-label="紐西蘭南島環島路線">
         <div class="landing-copy">
           <p class="eyebrow">2026.11.27 - 12.07</p>
@@ -21,48 +21,11 @@
           </div>
         </div>
 
-        <div class="landing-highlights" aria-label="行程亮點">
-          <a href="days/day-02.html">
-            <span>⛪</span>
-            <strong>特卡波湖與牧羊人教堂</strong>
-          </a>
-          <a href="days/day-03.html">
-            <span>🚁</span>
-            <strong>庫克山與雪山景色</strong>
-          </a>
-          <a href="days/day-07.html">
-            <span>⛴️</span>
-            <strong>米佛峽灣遊船</strong>
-          </a>
-          <a href="days/day-09.html">
-            <span>🪽</span>
-            <strong>信天翁與企鵝生態</strong>
-          </a>
-        </div>
-      </section>
-
-      <section class="dashboard landing-dashboard" aria-label="行程摘要">
-        <div>
-          <span class="metric__value">11</span>
-          <span class="metric__label">天行程</span>
-        </div>
-        <div>
-          <span class="metric__value">9</span>
-          <span class="metric__label">主要城鎮</span>
-        </div>
-        <div>
-          <span class="metric__value">1</span>
-          <span class="metric__label">露營車環線</span>
-        </div>
-        <div>
-          <span class="metric__value">南島</span>
-          <span class="metric__label">湖泊、山脈、峽灣、海岸</span>
-        </div>
-      </section>
-
-      <section id="dayDirectory" class="day-directory">
+        <div class="journal-map"><img src="assets/south-island-journal-map.png" width="1024" height="1536" alt="南島環島路線手繪地圖，從基督城沿湖區、庫克山、皇后鎮與米佛峽灣，經東岸返回。" fetchpriority="high"></div>
+      </section><p class="journey-facts">2026.11.27–12.07 · 11 天 · 露營車環線</p>
+      <section id="dayDirectory" tabindex="-1" class="day-directory">
         <div class="section-heading">
-          <p class="eyebrow">Days</p>
+          <p class="eyebrow">旅行手帳 · 每日路線</p>
           <h2>每日行程</h2>
         </div>
         <div id="landingDayGrid" class="landing-day-grid"></div>

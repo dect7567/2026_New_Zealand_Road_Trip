@@ -645,11 +645,8 @@ function renderLandingMap() {
     card.className = "landing-day-card";
     card.href = dayUrl(day);
     card.innerHTML = `
-      <span class="day-card__num">D${day.day}</span>
-      <span>
-        <strong>${day.title}</strong>
-        <span>${day.date} · ${day.highlight}</span>
-      </span>
+      <span class="landing-day-photo"><img src="${day.image.replace(/^\.\.\//, "")}" alt="${day.title}" width="1536" height="1024" loading="lazy" decoding="async"></span>
+      <span class="landing-day-body"><span class="landing-day-meta">D${day.day} · ${day.date}</span><strong>${day.title}</strong><span class="landing-day-highlight">${day.highlight}</span></span>
     `;
     dayGrid.appendChild(card);
   });
@@ -664,7 +661,9 @@ function renderDayPage() {
   if (!day) return;
 
   document.title = `Day ${day.day} · ${day.title}`;
-  document.querySelector("#dayHeroImage").style.backgroundImage = `linear-gradient(180deg, rgba(22, 33, 31, 0.04), rgba(22, 33, 31, 0.36)), url("${day.image}")`;
+  const heroImage = document.querySelector("#dayHeroImage");
+  heroImage.src = day.image;
+  heroImage.alt = day.title;
   document.querySelector("#detailDate").textContent = `${day.date} · Day ${day.day} · ${regionNames[day.region]}`;
   document.querySelector("#detailTitle").textContent = day.title;
   document.querySelector("#mapsLink").href = mapsUrl(day);
@@ -679,6 +678,9 @@ function renderDayPage() {
     renderInfoList(document.querySelector("#daySupplyList"), structuredDay.supplyItems || []);
     toggleOptionalSection("#dayFoodSection", structuredDay.foodItems);
     toggleOptionalSection("#daySupplySection", structuredDay.supplyItems);
+    document.querySelectorAll('.section-nav a').forEach((link) => {
+      link.hidden = Boolean(document.querySelector(link.getAttribute('href'))?.hidden);
+    });
     renderCampList(document.querySelector("#dayCampList"), structuredDay.campItems || []);
   } else {
     document.querySelector("#detailMain").textContent = day.main;
@@ -689,8 +691,11 @@ function renderDayPage() {
 
   const routeStrip = document.querySelector("#routeStrip");
   routeStrip.innerHTML = "";
-  day.stops.forEach((stop) => {
-    const chip = document.createElement("span");
+  day.stops.forEach((stop, index) => {
+    const chip = document.createElement("a");
+    chip.href = mapSearchUrl(day.routePlaces?.[index] || `${stop}, New Zealand`);
+    chip.target = "_blank";
+    chip.rel = "noreferrer";
     chip.className = "route-stop";
     chip.textContent = stop;
     routeStrip.appendChild(chip);
@@ -700,8 +705,9 @@ function renderDayPage() {
   const next = days.find((item) => item.day === day.day + 1);
   const pager = document.querySelector("#dayPager");
   pager.innerHTML = `
-    ${previous ? `<a class="ghost-button" href="day-${String(previous.day).padStart(2, "0")}.html">上一天</a>` : `<span></span>`}
-    ${next ? `<a class="map-button" href="day-${String(next.day).padStart(2, "0")}.html">下一天</a>` : `<a class="map-button" href="../index.html">回到首頁</a>`}
+    <a class="map-button pager-map" href="${mapsUrl(day)}" target="_blank" rel="noreferrer">開啟地圖</a>
+    ${previous ? `<a class="ghost-button" href="day-${String(previous.day).padStart(2, "0")}.html">上一天</a>` : `<span class="pager-disabled" aria-disabled="true">上一天</span>`}
+    ${next ? `<a class="ghost-button" href="day-${String(next.day).padStart(2, "0")}.html">下一天</a>` : `<a class="ghost-button" href="../index.html">回到首頁</a>`}
   `;
 }
 
@@ -713,7 +719,7 @@ function renderInfoList(container, items) {
         <h3>${item.title}</h3>
         <p>${item.description}</p>
       </div>
-      <a href="${mapSearchUrl(item.mapQuery)}" target="_blank" rel="noreferrer">地圖資訊</a>
+      <a href="${mapSearchUrl(item.mapQuery)}" target="_blank" rel="noreferrer" aria-label="${item.title}：地圖資訊">地圖 ↗</a>
       <span>${item.meta ? `${item.location} · ${item.meta}` : item.location}</span>
     </article>
   `).join("");
@@ -737,7 +743,7 @@ function renderCampList(container, items) {
         <p>${item.description}</p>
         ${item.meta ? `<span class="camp-item__meta">${item.meta}</span>` : ""}
       </div>
-      <a href="${mapSearchUrl(item.mapQuery)}" target="_blank" rel="noreferrer">地圖資訊</a>
+      <a href="${mapSearchUrl(item.mapQuery)}" target="_blank" rel="noreferrer" aria-label="${item.title}：地圖資訊">地圖 ↗</a>
     </article>
   `).join("");
 }
