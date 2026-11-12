@@ -18,7 +18,7 @@ const days = [
     stay: "Tasman Holiday Parks - Christchurch",
     stayType: "已預定住宿",
     alt: "留一至兩人留在超市負責大採買，其他人可以帶著行李在露營車上安頓，或是在露營地附設的遊戲區陪小孩玩耍，放鬆長途飛行的疲勞。",
-    image: "../assets/day-01-campervan-paknsave.png",
+    image: "../assets/day-01-campervan-paknsave.jpg",
     primaryItems: [
       {
         title: "抵達基督城國際機場",
@@ -634,10 +634,108 @@ function dayUrl(day) {
   return `days/day-${String(day.day).padStart(2, "0")}.html`;
 }
 
+function renderSiteNav() {
+  const isDay = Boolean(document.body.dataset.dayPage);
+  const prefix = isDay ? "../" : "";
+  const current = isDay ? "index.html" : location.pathname.split("/").pop() || "index.html";
+  const items = [
+    ["index.html", "行程", '<path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2Z M9 3v16 M15 5v16"/>'],
+    ["rules.html", "交通法規", '<path d="M7 21 9 3h6l2 18 M12 6v3 M12 12v3 M12 18v3"/>'],
+    ["arrival.html", "入境須知", '<path d="m3 12 7 2 3 7 2-9 6-7-2-2-7 6-9 2Z"/>'],
+    ["checklist.html", "行前清單", '<rect x="5" y="4" width="15" height="17" rx="2"/><path d="M9 4V2h7v2 M8 12l3 3 6-6"/>'],
+    ["info.html", "實用資訊", '<circle cx="12" cy="12" r="9"/><path d="M12 11v6 M12 7v1"/>']
+  ];
+  const nav = document.createElement("nav");
+  nav.className = "site-nav";
+  nav.setAttribute("aria-label", "全站導覽");
+  nav.innerHTML = `<div class="site-nav__inner"><span class="site-nav__brand">南島旅行手帳</span>${items.map(([file, label, icon]) =>
+    `<a href="${prefix}${file}"${file === current ? ' aria-current="page"' : ""}><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${icon}</svg><span>${label}</span></a>`
+  ).join("")}</div>`;
+  document.body.insertBefore(nav, document.querySelector(".skip-link")?.nextSibling || document.body.firstChild);
+}
+
+function renderRouteMap() {
+  const container = document.querySelector("#routeMap");
+  if (!container) return;
+  const ns = "http://www.w3.org/2000/svg";
+  const element = (tag, attributes, parent) => {
+    const node = document.createElementNS(ns, tag);
+    Object.entries(attributes).forEach(([key, value]) => node.setAttribute(key, value));
+    parent?.append(node);
+    return node;
+  };
+  const svg = element("svg", { viewBox: "-30 20 170 135", "aria-labelledby": "routeMapTitle routeMapDesc" });
+  element("title", { id: "routeMapTitle" }, svg).textContent = "南島 11 天環島路線";
+  element("desc", { id: "routeMapDesc" }, svg).textContent = "依每日行程連線的示意圖。點選日期標籤進入當天行程；細線為南島輪廓，非實際行車道路。";
+  // The outline uses the original map's 100 × 150 coordinate system.
+  element("path", {
+    class: "route-map__coast",
+    d: "M85 25 91 22 88 31 94 28 91 37 85 44 82 48 82 53 86 55 80 58 77 62 75 70 72 77 69 87 67 98 67 106 63 109 65 113 61 119 55 123 48 125 41 131 33 134 25 132 19 135 14 131 8 133 7 128 11 124 5 123 8 117 5 115 10 108 8 105 13 99 16 94 19 89 22 83 27 76 31 70 37 63 41 57 46 51 52 45 57 39 63 35 66 30 72 27 76 22 80 26Z"
+  }, svg);
+  element("polyline", {
+    class: "route-map__line",
+    points: days.map(({ coords }) => `${coords.x},${coords.y * 1.5}`).join(" ")
+  }, svg);
+
+  // Lay labels in three lanes derived from labelCoords, with enough space for touch targets.
+  // No separate itinerary coordinates or station-name table is maintained here.
+  const lanes = [[], [], []];
+  days.forEach((day) => lanes[day.labelCoords.x < 55 ? 0 : day.labelCoords.x < 80 ? 1 : 2].push(day));
+  lanes.forEach((lane, laneIndex) => {
+    lane.sort((a, b) => a.labelCoords.y - b.labelCoords.y);
+    let previousY = 27;
+    lane.forEach((day, index) => {
+      const x = -5 + laneIndex * 57;
+      const maximumY = 142 - (lane.length - index - 1) * 23;
+      const y = Math.min(maximumY, Math.max(previousY + 23, day.labelCoords.y * 1.5));
+      previousY = y;
+      const pointY = day.coords.y * 1.5;
+      element("path", { class: "route-map__leader", d: `M${day.coords.x} ${pointY} L${x} ${y}` }, svg);
+      const link = element("a", { href: dayUrl(day), "aria-label": `Day ${day.day} · ${day.date} · ${day.title} · ${day.highlight}` }, svg);
+      element("title", {}, link).textContent = `${day.date} · ${day.title} · ${day.highlight}`;
+      element("circle", { class: "route-map__dot", cx: day.coords.x, cy: pointY, r: 1.9 }, link);
+      element("rect", { class: "route-map__label-bg", x: x - 24, y: y - 11, width: 48, height: 22, rx: 1.5 }, link);
+      // Use the destination in arrow-separated titles, shortened to the station name.
+      const stops = day.title.split("→").map((stop) => stop.trim());
+      const home = days[0].title.split("取")[0];
+      const destination = stops.length > 2 && (stops[0] === stops.at(-1) || stops.at(-1) === home)
+        ? stops.at(-2) : stops.at(-1);
+      const station = day.title.includes("還車") ? day.title.split("還車")[0]
+        : destination.split(/[：取還自]/)[0];
+      element("text", { class: "route-map__label", x, y: y + 1.6, "text-anchor": "middle" }, link).textContent = `D${day.day} ${station}`;
+    });
+  });
+  container.replaceChildren(svg);
+}
+
+function setupPersistentChecklist() {
+  document.querySelectorAll("[data-checklist]").forEach((list) => {
+    const key = `nz-trip:v2:${list.dataset.checklist}`;
+    const status = list.querySelector("[role=status]");
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem(key) || "{}") || {}; } catch { /* Keep the list usable without storage. */ }
+    const inputs = [...list.querySelectorAll('input[type="checkbox"]')];
+    const updateStatus = (persist) => {
+      let storageAvailable = true;
+      if (persist) {
+        try { localStorage.setItem(key, JSON.stringify(Object.fromEntries(inputs.map((input) => [input.id, input.checked])))); }
+        catch { storageAvailable = false; }
+      }
+      status.textContent = `已完成 ${inputs.filter((input) => input.checked).length} / ${inputs.length} 項${storageAvailable ? "" : " · 瀏覽器無法儲存，重新整理後會重設"}`;
+    };
+    inputs.forEach((input) => {
+      input.checked = saved[input.id] === true;
+      input.addEventListener("change", () => updateStatus(true));
+    });
+    updateStatus(false);
+  });
+}
+
 function renderLandingMap() {
   const dayGrid = document.querySelector("#landingDayGrid");
   if (!dayGrid) return;
 
+  renderRouteMap();
   dayGrid.innerHTML = "";
 
   days.forEach((day) => {
@@ -827,6 +925,8 @@ function setupItineraryPrint() {
   });
 }
 
+renderSiteNav();
+setupPersistentChecklist();
 renderLandingMap();
 renderDayPage();
 setupItineraryPrint();
