@@ -18,7 +18,7 @@ const days = [
     stay: "Tasman Holiday Parks - Christchurch",
     stayType: "已預定住宿",
     alt: "留一至兩人留在超市負責大採買，其他人可以帶著行李在露營車上安頓，或是在露營地附設的遊戲區陪小孩玩耍，放鬆長途飛行的疲勞。",
-    image: "../assets/day-01-campervan-paknsave.png",
+    image: "../assets/day-01-campervan-paknsave.jpg",
     primaryItems: [
       {
         title: "抵達基督城國際機場",
@@ -634,10 +634,70 @@ function dayUrl(day) {
   return `days/day-${String(day.day).padStart(2, "0")}.html`;
 }
 
+function renderSiteNav() {
+  const isDay = Boolean(document.body.dataset.dayPage);
+  const prefix = isDay ? "../" : "";
+  const current = isDay ? "index.html" : location.pathname.split("/").pop() || "index.html";
+  const items = [
+    ["index.html", "行程", '<path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2Z M9 3v16 M15 5v16"/>'],
+    ["rules.html", "交通法規", '<path d="M7 21 9 3h6l2 18 M12 6v3 M12 12v3 M12 18v3"/>'],
+    ["arrival.html", "入境須知", '<path d="m3 12 7 2 3 7 2-9 6-7-2-2-7 6-9 2Z"/>'],
+    ["info.html", "實用資訊", '<circle cx="12" cy="12" r="9"/><path d="M12 11v6 M12 7v1"/>']
+  ];
+  const nav = document.createElement("nav");
+  nav.className = "site-nav";
+  nav.setAttribute("aria-label", "全站導覽");
+  nav.innerHTML = `<div class="site-nav__inner"><span class="site-nav__brand">南島旅行手帳</span>${items.map(([file, label, icon]) =>
+    `<a href="${prefix}${file}"${file === current ? ' aria-current="page"' : ""}><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${icon}</svg><span>${label}</span></a>`
+  ).join("")}</div>`;
+  document.body.insertBefore(nav, document.querySelector(".skip-link")?.nextSibling || document.body.firstChild);
+}
+
+function renderRouteMap() {
+  const container = document.querySelector("#routeMap");
+  if (!container) return;
+  const svgUrl = new URL("assets/route-map.svg", document.baseURI);
+  fetch(svgUrl)
+    .then((response) => {
+      if (!response.ok) throw new Error(`route map ${response.status}`);
+      return response.text();
+    })
+    .then((markup) => {
+      container.innerHTML = markup;
+    })
+    .catch(() => {
+      container.textContent = "路線圖無法載入。請重新整理，或確認 assets/route-map.svg 存在。";
+    });
+}
+
+function setupPersistentChecklist() {
+  document.querySelectorAll("[data-checklist]").forEach((list) => {
+    const key = `nz-trip:v2:${list.dataset.checklist}`;
+    const status = list.querySelector("[role=status]");
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem(key) || "{}") || {}; } catch { /* Keep the list usable without storage. */ }
+    const inputs = [...list.querySelectorAll('input[type="checkbox"]')];
+    const updateStatus = (persist) => {
+      let storageAvailable = true;
+      if (persist) {
+        try { localStorage.setItem(key, JSON.stringify(Object.fromEntries(inputs.map((input) => [input.id, input.checked])))); }
+        catch { storageAvailable = false; }
+      }
+      status.textContent = `已完成 ${inputs.filter((input) => input.checked).length} / ${inputs.length} 項${storageAvailable ? "" : " · 瀏覽器無法儲存，重新整理後會重設"}`;
+    };
+    inputs.forEach((input) => {
+      input.checked = saved[input.id] === true;
+      input.addEventListener("change", () => updateStatus(true));
+    });
+    updateStatus(false);
+  });
+}
+
 function renderLandingMap() {
   const dayGrid = document.querySelector("#landingDayGrid");
   if (!dayGrid) return;
 
+  renderRouteMap();
   dayGrid.innerHTML = "";
 
   days.forEach((day) => {
@@ -645,11 +705,8 @@ function renderLandingMap() {
     card.className = "landing-day-card";
     card.href = dayUrl(day);
     card.innerHTML = `
-      <span class="day-card__num">D${day.day}</span>
-      <span>
-        <strong>${day.title}</strong>
-        <span>${day.date} · ${day.highlight}</span>
-      </span>
+      <span class="landing-day-photo"><img src="${day.image.replace(/^\.\.\//, "")}" alt="${day.title}" width="1536" height="1024" loading="lazy" decoding="async"></span>
+      <span class="landing-day-body"><span class="landing-day-meta">D${day.day} · ${day.date}</span><strong>${day.title}</strong><span class="landing-day-highlight">${day.highlight}</span></span>
     `;
     dayGrid.appendChild(card);
   });
@@ -664,7 +721,9 @@ function renderDayPage() {
   if (!day) return;
 
   document.title = `Day ${day.day} · ${day.title}`;
-  document.querySelector("#dayHeroImage").style.backgroundImage = `linear-gradient(180deg, rgba(22, 33, 31, 0.04), rgba(22, 33, 31, 0.36)), url("${day.image}")`;
+  const heroImage = document.querySelector("#dayHeroImage");
+  heroImage.src = day.image;
+  heroImage.alt = day.title;
   document.querySelector("#detailDate").textContent = `${day.date} · Day ${day.day} · ${regionNames[day.region]}`;
   document.querySelector("#detailTitle").textContent = day.title;
   document.querySelector("#mapsLink").href = mapsUrl(day);
@@ -679,6 +738,9 @@ function renderDayPage() {
     renderInfoList(document.querySelector("#daySupplyList"), structuredDay.supplyItems || []);
     toggleOptionalSection("#dayFoodSection", structuredDay.foodItems);
     toggleOptionalSection("#daySupplySection", structuredDay.supplyItems);
+    document.querySelectorAll('.section-nav a').forEach((link) => {
+      link.hidden = Boolean(document.querySelector(link.getAttribute('href'))?.hidden);
+    });
     renderCampList(document.querySelector("#dayCampList"), structuredDay.campItems || []);
   } else {
     document.querySelector("#detailMain").textContent = day.main;
@@ -689,8 +751,11 @@ function renderDayPage() {
 
   const routeStrip = document.querySelector("#routeStrip");
   routeStrip.innerHTML = "";
-  day.stops.forEach((stop) => {
-    const chip = document.createElement("span");
+  day.stops.forEach((stop, index) => {
+    const chip = document.createElement("a");
+    chip.href = mapSearchUrl(day.routePlaces?.[index] || `${stop}, New Zealand`);
+    chip.target = "_blank";
+    chip.rel = "noreferrer";
     chip.className = "route-stop";
     chip.textContent = stop;
     routeStrip.appendChild(chip);
@@ -700,8 +765,9 @@ function renderDayPage() {
   const next = days.find((item) => item.day === day.day + 1);
   const pager = document.querySelector("#dayPager");
   pager.innerHTML = `
-    ${previous ? `<a class="ghost-button" href="day-${String(previous.day).padStart(2, "0")}.html">上一天</a>` : `<span></span>`}
-    ${next ? `<a class="map-button" href="day-${String(next.day).padStart(2, "0")}.html">下一天</a>` : `<a class="map-button" href="../index.html">回到首頁</a>`}
+    <a class="map-button pager-map" href="${mapsUrl(day)}" target="_blank" rel="noreferrer">開啟地圖</a>
+    ${previous ? `<a class="ghost-button" href="day-${String(previous.day).padStart(2, "0")}.html">上一天</a>` : `<span class="pager-disabled" aria-disabled="true">上一天</span>`}
+    ${next ? `<a class="ghost-button" href="day-${String(next.day).padStart(2, "0")}.html">下一天</a>` : `<a class="ghost-button" href="../index.html">回到首頁</a>`}
   `;
 }
 
@@ -713,7 +779,7 @@ function renderInfoList(container, items) {
         <h3>${item.title}</h3>
         <p>${item.description}</p>
       </div>
-      <a href="${mapSearchUrl(item.mapQuery)}" target="_blank" rel="noreferrer">地圖資訊</a>
+      <a href="${mapSearchUrl(item.mapQuery)}" target="_blank" rel="noreferrer" aria-label="${item.title}：地圖資訊">地圖 ↗</a>
       <span>${item.meta ? `${item.location} · ${item.meta}` : item.location}</span>
     </article>
   `).join("");
@@ -737,7 +803,7 @@ function renderCampList(container, items) {
         <p>${item.description}</p>
         ${item.meta ? `<span class="camp-item__meta">${item.meta}</span>` : ""}
       </div>
-      <a href="${mapSearchUrl(item.mapQuery)}" target="_blank" rel="noreferrer">地圖資訊</a>
+      <a href="${mapSearchUrl(item.mapQuery)}" target="_blank" rel="noreferrer" aria-label="${item.title}：地圖資訊">地圖 ↗</a>
     </article>
   `).join("");
 }
@@ -821,6 +887,8 @@ function setupItineraryPrint() {
   });
 }
 
+renderSiteNav();
+setupPersistentChecklist();
 renderLandingMap();
 renderDayPage();
 setupItineraryPrint();

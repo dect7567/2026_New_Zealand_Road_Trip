@@ -1,0 +1,119 @@
+{
+  "verifiedAt": "2026-11-12",
+  "note": "Geographic coordinates for the route map only. Do not confuse with days[].coords in app.js, which are 0–100 percentages from an old illustrated map and are not latitude/longitude. Itinerary data in app.js was left unchanged.",
+  "crs": "WGS84",
+  "stations": [
+    {
+      "id": "christchurch",
+      "nameZh": "基督城",
+      "nameEn": "Christchurch",
+      "lat": -43.530955,
+      "lon": 172.636434,
+      "days": [1, 11],
+      "href": "days/day-01.html",
+      "source": "Nominatim / OpenStreetMap, 2026-11-12, query: Christchurch, New Zealand",
+      "appJsCoords": "D1 {x:80,y:32} and D11 {x:77,y:30} are illustrated-map percentages, not lat/lon, and they are not the same point."
+    },
+    {
+      "id": "tekapo",
+      "nameZh": "特卡波",
+      "nameEn": "Lake Tekapo",
+      "lat": -44.004519,
+      "lon": 170.477727,
+      "days": [2],
+      "href": "days/day-02.html",
+      "source": "Nominatim / OpenStreetMap, 2026-11-12, query: Lake Tekapo, Mackenzie District, New Zealand (village)",
+      "appJsCoords": "D2 {x:58,y:43} illustrated-map percentage only."
+    },
+    {
+      "id": "mount-cook",
+      "nameZh": "庫克山",
+      "nameEn": "Aoraki / Mount Cook Village",
+      "lat": -43.734945,
+      "lon": 170.097723,
+      "days": [3],
+      "href": "days/day-03.html",
+      "source": "Nominatim / OpenStreetMap, 2026-11-12, query: Aoraki Mount Cook Village, New Zealand",
+      "appJsCoords": "D3 {x:48,y:40} illustrated-map percentage only."
+    },
+    {
+      "id": "wanaka",
+      "nameZh": "瓦納卡",
+      "nameEn": "Wānaka",
+      "lat": -44.694169,
+      "lon": 169.136464,
+      "days": [4],
+      "href": "days/day-04.html",
+      "source": "Nominatim / OpenStreetMap, 2026-11-12, query: Wanaka, New Zealand",
+      "appJsCoords": "D4 {x:43,y:56} illustrated-map percentage only."
+    },
+    {
+      "id": "queenstown",
+      "nameZh": "皇后鎮",
+      "nameEn": "Queenstown",
+      "lat": -45.032192,
+      "lon": 168.661000,
+      "days": [5],
+      "href": "days/day-05.html",
+      "source": "Nominatim / OpenStreetMap, 2026-11-12, query: Queenstown, New Zealand",
+      "appJsCoords": "D5 {x:35,y:60} illustrated-map percentage only."
+    },
+    {
+      "id": "te-anau",
+      "nameZh": "蒂阿瑙",
+      "nameEn": "Te Anau",
+      "lat": -45.414490,
+      "lon": 167.717489,
+      "days": [6],
+      "href": "days/day-06.html",
+      "source": "Nominatim / OpenStreetMap, 2026-11-12, query: Te Anau, New Zealand",
+      "appJsCoords": "D6 {x:27,y:69} illustrated-map percentage only. D7 overnight is also Te Anau; the D7 map point is Milford Sound."
+    },
+    {
+      "id": "milford",
+      "nameZh": "米佛峽灣",
+      "nameEn": "Milford Sound village / airport",
+      "lat": -44.673487,
+      "lon": 167.923929,
+      "days": [7],
+      "href": "days/day-07.html",
+      "source": "Nominatim / OpenStreetMap, 2026-11-12, query: Milford Sound Airport, New Zealand. Used the airport/village at the head of the sound (on land), not the water-body centroid, which would sit in the fiord.",
+      "appJsCoords": "D7 {x:17,y:69} illustrated-map percentage only."
+    },
+    {
+      "id": "dunedin",
+      "nameZh": "達尼丁",
+      "nameEn": "Dunedin",
+      "lat": -45.874098,
+      "lon": 170.503576,
+      "days": [8, 9],
+      "href": "days/day-08.html",
+      "source": "Nominatim / OpenStreetMap, 2026-11-12, query: Dunedin, New Zealand",
+      "appJsCoords": "D8 {x:56,y:77} and D9 {x:61,y:73} are illustrated-map percentages, not lat/lon, and they are not the same point."
+    },
+    {
+      "id": "oamaru",
+      "nameZh": "奧馬魯",
+      "nameEn": "Ōamaru",
+      "lat": -45.099983,
+      "lon": 170.969793,
+      "days": [10],
+      "href": "days/day-10.html",
+      "source": "Nominatim / OpenStreetMap, 2026-11-12, query: Oamaru, New Zealand",
+      "appJsCoords": "D10 {x:68,y:52} illustrated-map percentage only."
+    }
+  ],
+  "waypoints": [
+    {
+      "id": "canterbury-inland",
+      "lat": -44.30,
+      "lon": 171.20,
+      "role": "via",
+      "note": "Unlabelled inland point on the Canterbury plains. A straight line from Oamaru to Christchurch crosses the sea against the Natural Earth 10m coastline; this via keeps the segment on land."
+    }
+  ],
+  "routes": {
+    "loop": ["christchurch", "tekapo", "mount-cook", "wanaka", "queenstown", "te-anau", "dunedin", "oamaru", "canterbury-inland", "christchurch"],
+    "spur": ["te-anau", "milford"]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "nz-trip",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:route-map": "node scripts/build-route-map.mjs"
+  },
+  "devDependencies": {
+    "d3-geo": "^3.1.1"
+  }
+}
