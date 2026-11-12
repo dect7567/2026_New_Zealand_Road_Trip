@@ -786,16 +786,19 @@ function setupItineraryPrint() {
       header.append(heading, mapQr(mapsUrl(day), "本日路線", true));
       page.append(header);
 
+      const grid = document.createElement("div");
+      grid.className = "print-day-grid";
       const sections = [
-        ["主要行程", structuredDay.primaryItems],
-        ["其他替代方案", structuredDay.alternativeItems],
-        ["美食", structuredDay.foodItems],
-        ["採買及加油建議", structuredDay.supplyItems],
-        [structuredDay.campHeading || day.stayType || "營地建議", structuredDay.campItems]
+        ["主要行程", structuredDay.primaryItems, "print-section--primary"],
+        ["其他替代方案", structuredDay.alternativeItems, "print-section--alternative"],
+        ["美食", structuredDay.foodItems, "print-section--food"],
+        ["採買及加油建議", structuredDay.supplyItems, "print-section--supply"],
+        [structuredDay.campHeading || day.stayType || "營地建議", structuredDay.campItems, "print-section--wide"]
       ];
-      sections.forEach(([title, items]) => {
+      sections.forEach(([title, items, className]) => {
         if (!items || !items.length) return;
         const section = document.createElement("section");
+        section.className = className;
         section.append(textElement("h2", title));
         items.forEach((item) => {
           const row = document.createElement("article");
@@ -808,8 +811,9 @@ function setupItineraryPrint() {
           if (item.mapQuery) row.append(mapQr(mapSearchUrl(item.mapQuery), item.location || item.title));
           section.append(row);
         });
-        page.append(section);
+        grid.append(section);
       });
+      page.append(grid);
       fragment.append(page);
     });
     container.replaceChildren(fragment);
