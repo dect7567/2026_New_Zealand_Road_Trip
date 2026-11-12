@@ -1033,6 +1033,7 @@ select {
   }
 
   .landing-actions a,
+  .landing-actions button,
   .day-nav a,
   .day-pager a {
     width: 100%;
@@ -1093,5 +1094,151 @@ select {
   .day-page-hero {
     min-height: 58vh;
     padding-top: 132px;
+  }
+}
+
+button.ghost-button {
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.print-itinerary {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  body:has(.print-itinerary) {
+    background: white;
+    color: black;
+  }
+
+  body:has(.print-itinerary) > :not(.print-itinerary) {
+    display: none !important;
+  }
+
+  .print-itinerary {
+    display: block;
+    font-size: 8.5pt;
+    line-height: 1.3;
+  }
+
+  .print-day + .print-day {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .print-day-header,
+  .print-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2mm;
+  }
+
+  .print-day-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2mm 4mm;
+    align-items: start;
+  }
+
+  .print-section--primary {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .print-section--alternative {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .print-section--food {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .print-section--supply {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .print-section--wide {
+    grid-column: 1 / -1;
+  }
+
+  .print-day-header > div,
+  .print-item > div {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .print-itinerary h1 {
+    margin: 1mm 0;
+    font-size: 16pt;
+  }
+
+  .print-itinerary h2 {
+    margin: 2mm 0 1mm;
+    padding-bottom: 0.5mm;
+    border-bottom: 0.3mm solid #777;
+    font-size: 10pt;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  .print-itinerary h3 {
+    margin: 0 0 0.5mm;
+    font-size: 9pt;
+  }
+
+  .print-itinerary p {
+    margin: 0 0 0.5mm;
+    overflow-wrap: anywhere;
+    orphans: 2;
+    widows: 2;
+  }
+
+  .print-item {
+    padding: 1mm 0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border-bottom: 0.2mm solid #ccc;
+  }
+
+  .print-item-details {
+    font-size: 8.5pt;
+  }
+
+  .print-qr figcaption {
+    font-size: 6pt;
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .print-qr {
+    flex: 0 0 15mm;
+    width: 15mm;
+    margin: 0;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .print-qr--route {
+    flex-basis: 21mm;
+    width: 21mm;
+  }
+
+  .print-qr svg {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 }
