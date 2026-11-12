@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="../styles.css">
   </head>
   <body data-day-page="2">
-    <a class="skip-link" href="#dayPrimarySection">跳到主要行程</a><header class="day-page-hero">
+    <a class="skip-link" href="#dayPrimarySection">跳到主要行程</a>
+    <div class="day-scroll">
+    <header class="day-page-hero">
       <nav class="day-nav" aria-label="行程導覽">
         <a class="ghost-button ghost-button--light" href="../index.html">返回首頁</a>
         <a id="mapsLink" class="map-button" target="_blank" rel="noreferrer">開啟地圖</a>
@@ -44,8 +46,11 @@
           <div id="dayCampList" class="camp-list"></div>
         </section>
       </div>
-      <nav id="dayPager" class="day-pager" aria-label="前後日期"></nav>
     </main>
-    <script src="../app.js?v=20261112-ui-v2"></script>
+    </div>
+    <div class="day-pager-shell">
+      <nav id="dayPager" class="day-pager" aria-label="前後日期"></nav>
+    </div>
+    <script src="../app.js?v=20261112-ui-v3"></script>
   </body>
 </html>
