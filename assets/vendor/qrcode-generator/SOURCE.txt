@@ -1,0 +1,4 @@
+qrcode-generator (JavaScript), MIT License
+Upstream: https://github.com/kazuhikoarase/qrcode-generator
+File: js/dist/qrcode.js from the project's master branch (extracted 2026-11-12)
+Keep LICENSE alongside this file.

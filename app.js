@@ -742,8 +742,84 @@ function renderCampList(container, items) {
   `).join("");
 }
 
+function setupItineraryPrint() {
+  const button = document.querySelector("#printItinerary");
+  const container = document.querySelector("#printItineraryContent");
+  if (!button || !container) return;
+
+  function textElement(tag, text, className) {
+    const element = document.createElement(tag);
+    element.textContent = text;
+    if (className) element.className = className;
+    return element;
+  }
+
+  function mapQr(url, label, isRoute = false) {
+    const figure = document.createElement("figure");
+    figure.className = isRoute ? "print-qr print-qr--route" : "print-qr";
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("aria-label", label);
+    const qr = qrcode(0, "M");
+    qr.addData(url);
+    qr.make();
+    // Four modules of quiet space on every side, independent of QR density.
+    link.innerHTML = qr.createSvgTag(2, 8);
+    figure.append(link, textElement("figcaption", label));
+    return figure;
+  }
+
+  button.addEventListener("click", () => {
+    const fragment = document.createDocumentFragment();
+    days.forEach((day) => {
+      const structuredDay = { ...structuredDays[day.day], ...day };
+      const page = document.createElement("article");
+      page.className = "print-day";
+      const header = document.createElement("header");
+      header.className = "print-day-header";
+      const heading = document.createElement("div");
+      heading.append(
+        textElement("p", `${day.date} · Day ${day.day} · ${regionNames[day.region]}`),
+        textElement("h1", day.title),
+        textElement("p", day.stops.join(" → "))
+      );
+      header.append(heading, mapQr(mapsUrl(day), "本日路線", true));
+      page.append(header);
+
+      const sections = [
+        ["主要行程", structuredDay.primaryItems],
+        ["其他替代方案", structuredDay.alternativeItems],
+        ["美食", structuredDay.foodItems],
+        ["採買及加油建議", structuredDay.supplyItems],
+        [structuredDay.campHeading || day.stayType || "營地建議", structuredDay.campItems]
+      ];
+      sections.forEach(([title, items]) => {
+        if (!items || !items.length) return;
+        const section = document.createElement("section");
+        section.append(textElement("h2", title));
+        items.forEach((item) => {
+          const row = document.createElement("article");
+          row.className = "print-item";
+          const copy = document.createElement("div");
+          copy.append(textElement("h3", item.title), textElement("p", item.description));
+          const details = [item.location, item.meta, item.status].filter(Boolean);
+          if (details.length) copy.append(textElement("p", details.join(" · "), "print-item-details"));
+          row.append(copy);
+          if (item.mapQuery) row.append(mapQr(mapSearchUrl(item.mapQuery), item.location || item.title));
+          section.append(row);
+        });
+        page.append(section);
+      });
+      fragment.append(page);
+    });
+    container.replaceChildren(fragment);
+    window.print();
+  });
+}
+
 renderLandingMap();
 renderDayPage();
+setupItineraryPrint();
 
 function info(title, location, description, mapQuery, meta) {
   return { title, location, description, mapQuery, meta };
