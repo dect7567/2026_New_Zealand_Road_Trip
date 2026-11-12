@@ -3,7 +3,7 @@
  * Dependencies are for this script only; the published site does not load d3.
  *
  * Usage: npm install && npm run build:route-map
- * Optional: OVERLAY=1 npm run build:route-map  (writes /workspace/ui-mockup/v4/route-overlay.*)
+ * Optional: OVERLAY=1 npm run build:route-map  (writes /workspace/ui-mockup/final/route-overlay.*)
  */
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -13,16 +13,73 @@ import { geoMercator, geoPath, geoContains } from 'd3-geo';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dataDir = join(root, 'scripts', 'route-map');
 const outSvg = join(root, 'assets', 'route-map.svg');
-const overlayDir = process.env.OVERLAY_DIR || '/workspace/ui-mockup/v4';
+const overlayDir = process.env.OVERLAY_DIR || '/workspace/ui-mockup/final';
 
 const island = JSON.parse(readFileSync(join(dataDir, 'south-island.geojson'), 'utf8'));
 const catalog = JSON.parse(readFileSync(join(dataDir, 'stations.json'), 'utf8'));
 const labelConfig = JSON.parse(readFileSync(join(dataDir, 'labels.json'), 'utf8'));
 
-const { width, height, pad } = labelConfig.viewBox;
-const projection = geoMercator().fitExtent([[pad, pad], [width - pad, height - pad]], island);
+const { width, height } = labelConfig.viewBox;
+const rawPad = labelConfig.viewBox.pad;
+const pad = typeof rawPad === 'number'
+  ? { top: rawPad, right: rawPad, bottom: rawPad, left: rawPad }
+  : rawPad;
+const routeClearance = labelConfig.routeClearance ?? 12;
+
+function clipRingToBBox(ring, box) {
+  const edges = [
+    { inside: (p) => p[0] >= box.minLon, axis: 0, value: box.minLon },
+    { inside: (p) => p[0] <= box.maxLon, axis: 0, value: box.maxLon },
+    { inside: (p) => p[1] >= box.minLat, axis: 1, value: box.minLat },
+    { inside: (p) => p[1] <= box.maxLat, axis: 1, value: box.maxLat },
+  ];
+  const intersect = (a, b, edge) => {
+    const t = (edge.value - a[edge.axis]) / ((b[edge.axis] - a[edge.axis]) || 1e-12);
+    return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+  };
+  let output = ring.slice();
+  if (output.length > 1 && output[0][0] === output.at(-1)[0] && output[0][1] === output.at(-1)[1]) output.pop();
+  for (const edge of edges) {
+    const input = output;
+    output = [];
+    if (!input.length) break;
+    let prev = input.at(-1);
+    for (const curr of input) {
+      const currIn = edge.inside(curr);
+      const prevIn = edge.inside(prev);
+      if (currIn) {
+        if (!prevIn) output.push(intersect(prev, curr, edge));
+        output.push(curr);
+      } else if (prevIn) {
+        output.push(intersect(prev, curr, edge));
+      }
+      prev = curr;
+    }
+  }
+  if (output.length && (output[0][0] !== output.at(-1)[0] || output[0][1] !== output.at(-1)[1])) output.push(output[0]);
+  return output;
+}
+
+const focus = labelConfig.focus;
+const islandForFit = focus
+  ? {
+      type: 'Feature',
+      properties: island.properties,
+      geometry: {
+        type: 'Polygon',
+        coordinates: island.geometry.coordinates
+          .map((ring) => clipRingToBBox(ring, focus))
+          .filter((ring) => ring.length >= 4),
+      },
+    }
+  : island;
+if (focus && islandForFit.geometry.coordinates.length === 0) {
+  throw new Error('focus bbox clipped away the South Island coastline; widen scripts/route-map/labels.json focus');
+}
+
+const projection = geoMercator().fitExtent([[pad.left, pad.top], [width - pad.right, height - pad.bottom]], islandForFit);
 const path = geoPath(projection);
-const coastD = path(island);
+const coastD = path(islandForFit);
 if (!coastD) throw new Error('Failed to project South Island coastline');
 
 const points = new Map();
@@ -177,6 +234,47 @@ function segsIntersect(a, b, c, d) {
   return false;
 }
 
+function clamp(value, min, max) {
+  return Math.max(min, Math.min(max, value));
+}
+
+function pointToSegmentDistance(p, a, b) {
+  const dx = b.x - a.x;
+  const dy = b.y - a.y;
+  const length2 = dx * dx + dy * dy;
+  const t = length2 === 0 ? 0 : clamp(((p.x - a.x) * dx + (p.y - a.y) * dy) / length2, 0, 1);
+  return Math.hypot(p.x - (a.x + dx * t), p.y - (a.y + dy * t));
+}
+
+function boxToSegmentDistance(box, a, b) {
+  const corners = [
+    { x: box.x, y: box.y },
+    { x: box.x + box.w, y: box.y },
+    { x: box.x + box.w, y: box.y + box.h },
+    { x: box.x, y: box.y + box.h },
+  ];
+  const edges = [
+    [corners[0], corners[1]],
+    [corners[1], corners[2]],
+    [corners[2], corners[3]],
+    [corners[3], corners[0]],
+  ];
+  if (edges.some(([p, q]) => segsIntersect(p, q, a, b))) return 0;
+  if (pointInBox(a.x, a.y, box, 0) || pointInBox(b.x, b.y, box, 0)) return 0;
+  let distance = Math.min(
+    ...corners.map((corner) => pointToSegmentDistance(corner, a, b)),
+    pointToSegmentDistance(a, corners[0], corners[1]),
+    pointToSegmentDistance(a, corners[1], corners[2]),
+    pointToSegmentDistance(a, corners[2], corners[3]),
+    pointToSegmentDistance(a, corners[3], corners[0]),
+    pointToSegmentDistance(b, corners[0], corners[1]),
+    pointToSegmentDistance(b, corners[1], corners[2]),
+    pointToSegmentDistance(b, corners[2], corners[3]),
+    pointToSegmentDistance(b, corners[3], corners[0]),
+  );
+  return distance;
+}
+
 function checkLabels(items, presetName) {
   const errors = [];
   for (const item of items) {
@@ -195,6 +293,23 @@ function checkLabels(items, presetName) {
     for (let j = i + 1; j < items.length; j++) {
       if (boxesOverlap(items[i].box, items[j].box)) {
         errors.push(`${presetName}: labels overlap ${items[i].id} × ${items[j].id}`);
+      }
+    }
+  }
+  const routeSegments = Object.values(catalog.routes).flatMap((ids) => {
+    const segs = [];
+    for (let i = 0; i < ids.length - 1; i++) {
+      const a = lookup(ids[i]);
+      const b = lookup(ids[i + 1]);
+      segs.push({ from: a.id, to: b.id, a: { x: a.x, y: a.y }, b: { x: b.x, y: b.y } });
+    }
+    return segs;
+  });
+  for (const item of items) {
+    for (const seg of routeSegments) {
+      const distance = boxToSegmentDistance(item.box, seg.a, seg.b);
+      if (distance < routeClearance) {
+        errors.push(`${presetName}/${item.id}: label is ${distance.toFixed(1)}px from route ${seg.from}→${seg.to} (need ≥ ${routeClearance})`);
       }
     }
   }

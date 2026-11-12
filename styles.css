@@ -353,7 +353,7 @@ h1, h2, h3, p { margin-top: 0; }
   }
   @media (max-width: 767px) {
     body { padding-top: 0; padding-bottom: calc(68px + env(safe-area-inset-bottom)); }
-    .route-map { height: 420px; }
+    .route-map { height: clamp(280px, calc(100dvh - 494px), 360px); }
     .route-map__annos--desktop { display: none; }
     .route-map__annos--mobile { display: block; }
     .site-nav { inset: auto 0 0; height: calc(68px + env(safe-area-inset-bottom)); padding-bottom: env(safe-area-inset-bottom); border-top: 1px solid var(--line); border-bottom: 0; }
@@ -383,7 +383,7 @@ h1, h2, h3, p { margin-top: 0; }
     .landing-copy p:not(.eyebrow) { font-size: 16px; line-height: 1.8; }
     .journey-date { font-size: 13px; margin-bottom: 10px; letter-spacing: 0; }
     .landing-actions { margin-top: 16px; gap: 8px; }
-    .route-map { height: 420px; }
+    .route-map { height: clamp(280px, calc(100dvh - 494px), 360px); }
     .route-map__annos--desktop { display: none; }
     .route-map__annos--mobile { display: block; }
     .day-directory { padding-top: 18px; scroll-margin-top: 16px; }

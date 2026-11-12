@@ -16,7 +16,8 @@
 
 - 海岸線：`scripts/route-map/south-island.geojson`，取自 Natural Earth 10m admin 0 countries（公有領域，https://www.naturalearthdata.com/about/terms-of-use/），只留南島主島多邊形。
 - 站點經緯度：`scripts/route-map/stations.json`（Nominatim / OpenStreetMap，2026-11-12 核實）。這不是 `app.js` 裡 `days[].coords`（那是舊示意圖的 0–100 百分比，不是經緯度，請勿拿來畫地理圖，也請勿擅自改行程資料）。
-- 站名位置：只改 `scripts/route-map/labels.json` 的方向與偏移，然後重跑腳本。腳本會檢查標籤不重疊、不壓站點、不超出 viewBox，且引線不相交。
+- 站名位置與畫面裁切：只改 `scripts/route-map/labels.json` 的方向、偏移、`viewBox`（可為不對稱 `pad`）與 `focus`（裁掉北端留白、放大路線），然後重跑腳本。不要改 `stations.json` 的經緯度。腳本會檢查標籤不重疊、不壓站點、不超出 viewBox、引線不相交，且標籤方框與任何路線線段（含虛線支線）至少保持 `routeClearance`（預設 12）SVG 單位的間距。
+- `focus` 只用於海岸線裁切與 `fitExtent`；陸地判斷與疊圖校對仍用完整南島。疊圖請用 `OVERLAY=1 npm run build:route-map`（預設寫到 `/workspace/ui-mockup/final/route-overlay.svg`）。
 - 請勿手改 `assets/route-map.svg` 裡的座標或 path。
 
 ## 不可改
