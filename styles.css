@@ -397,3 +397,99 @@ h1, h2, h3, p { margin-top: 0; }
 @media print {
   .site-nav, .day-pager, .day-pager-shell, .section-nav, .day-nav, .skip-link { display: none !important; }
 }
+
+/* Traffic reference: page-scoped screen styles; itinerary print stays independent. */
+@media screen {
+  .rules-page { padding-bottom: 96px; }
+  .rules-page .reference-header { max-width: none; }
+  .rules-verified { font-size: 13px; }
+  .rules-page h2 { margin-bottom: 24px; font-family: "Noto Serif TC", serif; font-size: clamp(24px, 3vw, 30px); line-height: 1.5; }
+  .rules-page h3 { margin-bottom: 16px; font-size: 22px; line-height: 1.5; }
+  .rules-page h4 { margin-bottom: 16px; font-size: 18px; }
+  .rules-page a:not(.skip-link) { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+  .rules-page a:hover { text-decoration-thickness: 2px; }
+  .rules-page :is(a, button, select):focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  .rules-jump { margin-bottom: 48px; border-block: 1px solid var(--line); }
+  .rules-jump ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px 24px; margin: 0; padding: 16px 0; list-style: none; counter-reset: rules; }
+  .rules-jump li { counter-increment: rules; min-width: 0; }
+  .rules-jump a { display: flex; align-items: center; gap: 12px; min-height: 44px; padding-block: 8px; font-size: 14px; }
+  .rules-jump a::before { content: "0" counter(rules); color: var(--muted); font-size: 12px; text-decoration: none; }
+  .rules-section { padding-block: 0 48px; margin-bottom: 48px; border-bottom: 1px solid var(--line); scroll-margin-top: 88px; }
+  .rules-section:last-child { margin-bottom: 0; }
+  .rules-list { margin: 0; padding-left: 24px; max-width: 800px; line-height: 1.85; }
+  .rules-list li { padding-left: 4px; margin-bottom: 12px; }
+  .rules-list li::marker { color: var(--accent); }
+  .rules-list p { margin-bottom: 0; }
+  .rules-sources { display: flex; flex-wrap: wrap; gap: 4px 24px; margin-top: 16px; }
+  .rules-sources a, .rules-diagrams a.source, .rules-diagrams .source a { display: inline-flex; align-items: center; min-height: 44px; padding-block: 8px; font-size: 13px; overflow-wrap: anywhere; }
+  .rules-diagrams { --a: #267588; --b: #b85338; }
+  .rules-diagrams .intro { max-width: 760px; line-height: 1.85; }
+  .rules-diagrams .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 24px 0 32px; border-block: 1px solid var(--line); }
+  .rules-diagrams .step { padding: 24px 16px 24px 0; }
+  .rules-diagrams .step + .step { border-left: 1px solid var(--line); padding-left: 16px; }
+  .rules-diagrams .step b { display: block; margin-block: 8px; }
+  .rules-diagrams .step span, .rules-diagrams .condition { font-size: 14px; color: var(--muted); }
+  .rules-diagrams .n { color: var(--accent); font-size: 13px; }
+  .rules-diagrams .explorer { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; align-items: start; }
+  .rules-diagrams .case-menu { display: flex; flex-direction: column; gap: 8px; }
+  .rules-diagrams button { min-height: 44px; padding: 12px; border: 1px solid var(--line); border-radius: 4px; background: transparent; color: var(--ink); font: inherit; font-size: 14px; cursor: pointer; }
+  .rules-diagrams button:hover { background: var(--surface); border-color: var(--accent); }
+  .rules-diagrams button:active { background: #e6eeec; }
+  .rules-diagrams button:disabled { opacity: .5; cursor: default; }
+  .rules-diagrams .case-menu button { text-align: left; }
+  .rules-diagrams .case-menu small { display: block; margin-top: 4px; font-size: 12px; }
+  .rules-diagrams .case-menu button[aria-pressed="true"], .rules-diagrams button.primary { color: white; background: var(--accent); border-color: var(--accent); }
+  .rules-diagrams .case-menu button[aria-pressed="true"] { box-shadow: inset 4px 0 var(--ink); }
+  .rules-diagrams .case-panel { min-width: 0; }
+  .rules-diagrams .case-head { display: flex; flex-wrap: wrap; align-items: start; gap: 8px 16px; margin-bottom: 12px; }
+  .rules-diagrams .case-head h3 { flex: 1 1 280px; margin-bottom: 0; }
+  .rules-diagrams .tag { padding: 4px 8px; border: 1px solid var(--line); border-radius: 4px; font-size: 12px; color: var(--muted); }
+  .rules-diagrams .scene-layout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 24px; margin-top: 24px; }
+  .rules-diagrams .scene { border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: #f3f4ef; }
+  .rules-diagrams .scene svg { display: block; width: 100%; height: auto; }
+  .rules-diagrams svg text { font-family: "Noto Sans TC", sans-serif; }
+  .rules-diagrams .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; padding: 12px; border-top: 1px solid var(--line); font-size: 12px; background: var(--paper); }
+  .rules-diagrams .dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; }
+  .rules-diagrams .a { background: var(--a); }
+  .rules-diagrams .b { background: var(--b); }
+  .rules-diagrams .order { display: inline-flex; padding: 8px 12px; background: #e6eeec; border-radius: 4px; font-size: 14px; }
+  .rules-diagrams .verdict { font-size: 24px; font-weight: 700; margin-block: 16px; }
+  .rules-diagrams .reason { line-height: 1.85; }
+  .rules-diagrams .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 24px 12px; }
+  .rules-diagrams .state { min-height: 44px; font-size: 13px; color: var(--muted); }
+  .rules-diagrams .trap { border-left: 2px solid var(--line); padding-left: 16px; margin-block: 24px; font-size: 14px; }
+  .rules-diagrams .trap b { display: block; margin-bottom: 8px; }
+  .rules-diagrams .source { font-size: 13px; color: var(--muted); }
+  .rules-diagrams .variant { margin-top: 16px; }
+  .rules-diagrams .variant label { display: block; margin-bottom: 8px; font-size: 14px; }
+  .rules-diagrams select { width: 100%; min-height: 44px; padding: 8px; border: 1px solid var(--line); border-radius: 4px; font: inherit; font-size: 14px; background: var(--paper); color: var(--ink); }
+  .rules-diagrams .hidden { display: none; }
+  .rules-diagrams .more { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--line); }
+  .rules-diagrams .details-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .rules-diagrams .note { padding: 24px; border: 1px solid var(--line); border-radius: 4px; }
+  .rules-diagrams .note p { line-height: 1.85; }
+  .rules-diagrams .signal-table { width: 100%; border-collapse: collapse; font-size: 14px; table-layout: fixed; }
+  .rules-diagrams .signal-table :is(th, td) { padding: 12px 8px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+  .rules-diagrams .road-signs { display: flex; gap: 24px; margin-block: 16px; }
+  .rules-diagrams .road-signs svg { display: block; width: 76px; height: 82px; margin-inline: auto; }
+  .rules-diagrams .sign-caption { font-size: 13px; text-align: center; }
+  .rules-diagram-note { margin: 24px 0 0; font-size: 13px; color: var(--muted); }
+  @media (max-width: 1100px) {
+    .rules-diagrams .explorer { grid-template-columns: 1fr; }
+    .rules-diagrams .case-menu { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  @media (max-width: 767px) {
+    .rules-page { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
+    .rules-jump ol { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 16px; }
+    .rules-jump li:last-child { grid-column: 1 / -1; }
+    .rules-section { scroll-margin-top: 24px; padding-bottom: 32px; margin-bottom: 32px; }
+    .rules-diagrams .steps, .rules-diagrams .details-grid { grid-template-columns: 1fr; }
+    .rules-diagrams .step { padding: 16px 0; }
+    .rules-diagrams .step + .step { padding: 16px 0; border-left: 0; border-top: 1px solid var(--line); }
+    .rules-diagrams .case-menu { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .rules-diagrams .scene-layout { grid-template-columns: 1fr; }
+    .rules-diagrams .scene { max-width: 460px; margin-inline: auto; }
+    .rules-diagrams .actions button { flex: 1; }
+    .rules-diagrams .note { padding: 16px; }
+  }
+}
