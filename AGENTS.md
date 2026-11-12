@@ -5,7 +5,7 @@
 ## 目錄
 - `index.html`：首頁（路線圖 + 每日列表 + 一鍵列印）
 - `days/day-01.html`–`day-11.html`：同一套每日模板，資料由 `app.js` 填入
-- `rules.html`、`arrival.html`、`checklist.html`、`info.html`：全站分頁（交通法規、入境須知、行前清單、實用資訊）
+- `rules.html`、`arrival.html`、`info.html`：全站分頁（交通法規、入境須知、實用資訊）
 - `app.js`：`days`、`structuredDays` 為行程資料來源；列印在 `setupItineraryPrint`
 - `styles.css`：畫面與 `@media print` 分開；新畫面規則放在 `@media screen`
 - `assets/`：每日照片、`route-map.svg`、`vendor/qrcode-generator`

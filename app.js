@@ -642,7 +642,6 @@ function renderSiteNav() {
     ["index.html", "行程", '<path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2Z M9 3v16 M15 5v16"/>'],
     ["rules.html", "交通法規", '<path d="M7 21 9 3h6l2 18 M12 6v3 M12 12v3 M12 18v3"/>'],
     ["arrival.html", "入境須知", '<path d="m3 12 7 2 3 7 2-9 6-7-2-2-7 6-9 2Z"/>'],
-    ["checklist.html", "行前清單", '<rect x="5" y="4" width="15" height="17" rx="2"/><path d="M9 4V2h7v2 M8 12l3 3 6-6"/>'],
     ["info.html", "實用資訊", '<circle cx="12" cy="12" r="9"/><path d="M12 11v6 M12 7v1"/>']
   ];
   const nav = document.createElement("nav");
