@@ -3,20 +3,116 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="紐西蘭南島自駕交通法規：靠左行駛、互動路權圖解、單線橋、速限、超車、酒駕手機與駕照租車參考。">
     <title>交通法規 · 南島旅行手帳</title>
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&family=Noto+Serif+TC:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20261113-rules-v1">
   </head>
   <body>
     <a class="skip-link" href="#mainContent">跳到主要內容</a>
-    <main id="mainContent" tabindex="-1" class="reference-shell">
+    <main id="mainContent" tabindex="-1" class="reference-shell rules-page">
       <header class="reference-header">
         <p class="eyebrow">南島旅行手帳</p>
         <h1>交通法規</h1>
+        <p class="rules-verified">資料核對：2026/11/13，依 NZ Transport Agency 現行 Road Code 與紐西蘭警察資料</p>
       </header>
-      <p class="sample-note">施工中</p>
-      <p>內容整理中，出發前再補上。</p>
+<nav class="rules-jump" aria-label="交通法規頁內目錄"><ol><li><a href="#keep-left">靠左行駛</a></li><li><a href="#right-of-way">路權圖解</a></li><li><a href="#one-lane-bridges">單線橋</a></li><li><a href="#speed">速限與測速</a></li><li><a href="#passing">超車與讓車彎道</a></li><li><a href="#alcohol-phone">酒駕與手機</a></li><li><a href="#licence-rural">駕照、租車與鄉間實務</a></li></ol></nav>
+<section class="rules-section" id="keep-left" aria-labelledby="keep-left-title">
+<h2 id="keep-left-title">靠左行駛與右駕車</h2>
+<ul class="rules-list"><li>紐西蘭一律靠左行駛。窄路可能沒有標線，仍要靠左。</li>
+<li>每個路口、每次從路邊或支道開上大路，都要先確認自己回到左側。轉彎後也走左側車道，不要切過對向或切角（官方中文手冊寫「不要切道」）。</li>
+<li>除非正在安全超車，或要轉彎離開道路，否則不要越過中心線。</li>
+<li>轉彎、變換車道、進出車流前，至少提前 3 秒打方向燈。</li></ul>
+<div class="rules-sources" aria-label="官方出處"><a href="https://www.nzta.govt.nz/assets/resources/driving-in-nz/docs/driving-in-nz-traditional-chinese.pdf" target="_blank" rel="noopener noreferrer">NZTA｜在紐西蘭駕車（繁體中文 PDF） ↗</a>
+<a href="https://www.nzta.govt.nz/assets/resources/driving-in-nz/docs/driving-in-nz-english.pdf" target="_blank" rel="noopener noreferrer">NZTA｜Driving in New Zealand（英文 PDF） ↗</a></div>
+</section>
+<section class="rules-section rules-diagrams" id="right-of-way" aria-labelledby="right-of-way-title"><h2 id="right-of-way-title">路權圖解</h2><p class="intro">把每台車面對的標誌、所在道路與行車方向放在一起看。選一個路上會遇到的情境，從俯視圖理解讓行規則，再看車輛依序通過。</p>
+ <div class="steps">
+  <div class="step"><div class="n">01 · 控制條件</div><b>先看號誌與標誌</b><span>先依現場指揮及號誌；無號誌時，比較 STOP、GIVE WAY 或無標誌。</span></div>
+  <div class="step"><div class="n">02 · 道路與轉向</div><b>再看誰會跨過誰的路徑</b><span>同等控制下，判斷 T 字道路、轉彎與直行、對向左右轉。</span></div>
+  <div class="step"><div class="n">03 · 其他交叉衝突</div><b>其他規則不適用，才讓右方</b><span>「讓右方」不是每個路口的第一條規則，也不會蓋過 STOP。</span></div>
+ </div>
+ <section class="explorer" aria-label="路權案例圖解">
+  <nav class="case-menu" aria-label="選擇案例" id="case-menu"></nav>
+  <article class="case-panel">
+   <div class="case-head"><h3 id="case-title"></h3><span class="tag" id="case-tag"></span></div>
+   <p class="condition" id="condition"></p>
+   <div class="scene-layout">
+    <div>
+     <div class="scene"><svg id="scene" viewBox="0 0 500 500" role="img" aria-labelledby="diagram-title diagram-desc"></svg><div class="legend"><span><i class="dot a"></i>A 車（藍）</span><span><i class="dot b"></i>B 車（橘）</span><span>箭頭＝預計路徑</span></div></div>
+     <div class="variant hidden" id="variant"><label for="controls">只改標誌，看看順序怎麼變</label><select id="controls"><option value="same">雙方都是 GIVE WAY</option><option value="stopA">A 是 STOP / B 是 GIVE WAY</option><option value="stopB">A 是 GIVE WAY / B 是 STOP</option><option value="bothStop">雙方都是 STOP</option><option value="none">雙方都無標誌</option></select></div>
+    </div>
+    <div class="decision"><span class="order" id="order"></span><div class="verdict" id="verdict"></div><p class="reason" id="reason"></p><div class="actions"><button class="primary" id="play" type="button">播放通過順序</button><button id="reset" type="button">回到起點</button></div><p class="state" id="state" role="status" aria-live="polite"></p><div class="trap"><b id="trap-title">容易誤判的地方</b><span id="trap"></span></div><p class="source" id="source"></p></div>
+   </div>
+  </article>
+ </section>
+ <section class="more">
+  <h3>把標誌翻成實際動作</h3>
+  <div class="details-grid">
+   <div class="note"><h4>STOP 與 GIVE WAY</h4><div class="road-signs"><div><svg viewBox="0 0 100 100" role="img" aria-label="紅色八角 STOP 標誌"><path d="M30 6H70L94 30V70L70 94H30L6 70V30Z" fill="#b72e30" stroke="white" stroke-width="4"/><text x="50" y="57" text-anchor="middle" fill="white" font-size="22" font-weight="700">STOP</text></svg><div class="sign-caption">完全停住</div></div><div><svg viewBox="0 0 100 100" role="img" aria-label="紅邊倒三角 GIVE WAY 標誌"><path d="M6 12H94L50 92Z" fill="white" stroke="#b72e30" stroke-width="8" stroke-linejoin="round"/><text x="50" y="39" text-anchor="middle" font-size="15" font-weight="700">GIVE</text><text x="50" y="57" text-anchor="middle" font-size="15" font-weight="700">WAY</text></svg><div class="sign-caption">讓行，必要時停車</div></div></div><p>STOP：先完全停住，再等待應讓行的車輛通過。停過一次，不代表取得優先通行順序。</p><p>GIVE WAY：減速並準備停車，讓應讓行的車輛通過；只有確認可以通過，才繼續前進。</p><a class="source" href="https://www.nzta.govt.nz/driving-skills/learn-to-drive/roadcode/general-road-code/about-driving/giving-way/driving-up-to-an-intersection" target="_blank" rel="noopener">官方依據：Driving up to an intersection ↗</a></div>
+   <div class="note"><h4>圓環：方向燈跟著出口走</h4><table class="signal-table"><thead><tr><th>目的方向</th><th>進入前</th><th>離開前</th></tr></thead><tbody><tr><td>第一出口左轉</td><td>左方向燈</td><td>維持左燈</td></tr><tr><td>直行／大致直行</td><td>不打方向燈</td><td>經過前一出口後打左燈</td></tr><tr><td>超過半圈／右轉</td><td>右方向燈</td><td>經過前一出口後改左燈</td></tr></tbody></table><p style="margin-top:14px">從你的入口判斷方向，不能只數第幾個出口。多車道圓環先依車道箭頭選道；本頁圓環圖是單車道示例。</p><a class="source" href="https://www.nzta.govt.nz/assets/resources/know-your-way-around-roundabouts/docs/know-your-way-around-roundabouts.pdf" target="_blank" rel="noopener">官方依據：Know your way around roundabouts ↗</a></div>
+   <div class="note"><h4>綠燈，與綠色轉向箭頭不同</h4><p>一般綠燈右轉時，仍須讓對向直行與左轉車。綠色右轉箭頭則允許依箭頭右轉，其他方向依各自號誌。紅色轉向箭頭亮著時，該方向要停，即使一般綠燈同時亮著。</p><a class="source" href="https://www.nzta.govt.nz/driving-skills/learn-to-drive/roadcode/general-road-code/about-driving/giving-way/the-give-way-rules" target="_blank" rel="noopener">官方依據：The give way rules（號誌說明）↗</a></div>
+   <div class="note"><h4>「直行」也要看道路中心線</h4><p>無號誌的特殊路口，若你離開標示中心線的延續路徑，法規可能視為轉彎，即使方向盤看起來是在直走。先辨識中心線如何延伸，再判斷轉向讓行。</p><p>圖例只呈現兩車間的衝突；實際通過前，還要納入其他車流、自行車、行人、車道標線及現場指揮。</p><a class="source" href="https://www.nzta.govt.nz/driving-skills/learn-to-drive/roadcode/general-road-code/about-driving/giving-way/the-give-way-rules" target="_blank" rel="noopener">官方依據：The give way rules ↗</a></div>
+  </div>
+ </section>
+<p class="rules-diagram-note">本頁為路權圖解第一版，尚未涵蓋所有交通法規。車道與路徑為示意，動畫呈現兩車的相對通過順序，並非指定等待秒數；圖中的車色只用來辨識 A／B。</p></section>
+<section class="rules-section" id="one-lane-bridges" aria-labelledby="one-lane-bridges-title">
+<h2 id="one-lane-bridges-title">單線橋</h2>
+<ul class="rules-list"><li>南島很多路段有單線橋（兩向共用一條橋面）。看到前置警告標誌要先減速，並查看對向是否有來車；需要讓行時就停車。</li>
+<li>判斷誰先過：看標誌上的<strong>小紅箭頭</strong>。官方手冊寫：「小紅箭頭顯示了必須讓路的方向。」</li>
+<li>若看到的是「必須讓對向車輛先行」的那組標誌，要讓對向先過橋。</li>
+<li>若看到的是優先通行標誌，則對向沒有來車時，可以過橋。</li>
+<li>即使標誌顯示你有優先，橋上已有對向車輛時仍應等待；不要和對向車搶同一條橋面。</li></ul>
+<div class="rules-sources" aria-label="官方出處"><a href="https://www.nzta.govt.nz/assets/resources/driving-in-nz/docs/driving-in-nz-traditional-chinese.pdf" target="_blank" rel="noopener noreferrer">NZTA｜在紐西蘭駕車（繁體中文 PDF） ↗</a>
+<a href="https://www.nzta.govt.nz/assets/resources/driving-in-nz/docs/driving-in-nz-english.pdf" target="_blank" rel="noopener noreferrer">NZTA｜Driving in New Zealand（英文 PDF） ↗</a></div>
+</section>
+<section class="rules-section" id="speed" aria-labelledby="speed-title">
+<h2 id="speed-title">速限與測速</h2>
+<ul class="rules-list"><li>依路邊限速標誌行駛；開闊道路最高 100 km/h，市區常見 50 km/h，也有 70 km/h 等路段。100 是上限，不是目標，雨霧時要再放慢。</li>
+<li><strong>我們的露營車速限 90 km/h</strong><p>即使路牌寫 100，最高也只能開 90。</p></li>
+<li>學校區：學校前的電子速限牌在上下學時段亮起，顯示 30 或 40 km/h 且紅圈閃爍時，就是通過學校的最高速度；沒亮則照一般速限。</li>
+<li>施工路段：會設臨時速限牌（常見 30 km/h），一樣是法定速限。</li>
+<li>彎道前的建議速度牌是建議通過速度，不是法定速限。</li>
+<li>全國有測速照相，官方沒有公布容許超速幾公里。罰鍰：超速 10 km/h 以內 NZ$30，最高到超速 46–50 km/h NZ$630。超速超過 40 km/h（臨時速限路段超過 50 km/h）會自動吊扣駕照 28 天。</li></ul>
+<div class="rules-sources" aria-label="官方出處"><a href="https://www.nzta.govt.nz/driving-skills/learn-to-drive/roadcode/general-road-code/about-limits/speed-limits" target="_blank" rel="noopener noreferrer">NZTA｜速限與讓車規定 ↗</a>
+<a href="https://www.nzta.govt.nz/travelling-on-our-roads/safety-cameras/other-safety-infrastructure/variable-speed-limits" target="_blank" rel="noopener noreferrer">NZTA｜可變速限 ↗</a>
+<a href="https://www.police.govt.nz/faq/what-are-the-fines-for-speeding" target="_blank" rel="noopener noreferrer">紐西蘭警察｜超速罰則 ↗</a></div>
+</section>
+<section class="rules-section" id="passing" aria-labelledby="passing-title">
+<h2 id="passing-title">超車與讓車彎道</h2>
+<ul class="rules-list"><li>多數道路每向只有一條車道。有超車車道（passing lane，官方中文手冊稱「加速車道」）時，等到該路段再超車，不要急著越線。</li>
+<li>你這一側的中心線若是黃實線，表示超車危險，不要跨越去超車。若是雙黃實線，表示道路兩側都不能超車。</li>
+<li>絕對不要在轉彎處或轉角附近超車。超車全程（包含回到原車道時）前方都要有 100 公尺的淨空。</li>
+<li>開得比速限慢、後面有車跟著時，Road Code 規定（must）要盡量靠左，並在安全時儘快靠邊讓後車先過；直線路段不要加速阻擋後車超車。露營車開得慢，這條特別重要。</li></ul>
+<div class="rules-sources" aria-label="官方出處"><a href="https://www.nzta.govt.nz/assets/resources/driving-in-nz/docs/driving-in-nz-traditional-chinese.pdf" target="_blank" rel="noopener noreferrer">NZTA｜在紐西蘭駕車（繁體中文 PDF） ↗</a>
+<a href="https://www.nzta.govt.nz/driving-skills/learn-to-drive/roadcode/general-road-code/about-limits/speed-limits" target="_blank" rel="noopener noreferrer">NZTA｜速限與讓車規定 ↗</a></div>
+</section>
+<section class="rules-section" id="alcohol-phone" aria-labelledby="alcohol-phone-title">
+<h2 id="alcohol-phone-title">酒駕與手機</h2>
+<ul class="rules-list"><li>20 歲以下：酒精限制為零。喝了就不要開。</li>
+<li>20 歲及以上：呼氣不得超過每公升 250 微克酒精（250 mcg/L）；血液不得超過每 100 毫升 50 毫克酒精（50 mg/100 mL）。警察與官方手冊都強調：即使少量酒精也會影響駕駛，要開車最好完全不喝酒。</li>
+<li>駕車時不得使用手持手機，包含在紅燈停下時。打電話必須用免提；發簡訊一律違法。警察頁並寫：不得用手持手機撥打、接聽或結束通話，也不得撰寫、傳送或閱讀簡訊／電子郵件，或收發、觀看視訊訊息等。</li>
+<li>罰則（警察公開頁）：罰款 NZ$150，並記 20 點違規點數。</li>
+<li>例外：警察頁寫，只有在緊急情況、且停車報案不安全或不切實際時，才可用手機打電話。官方手冊另外提醒：體內有可能影響駕駛的藥物（包含部分處方藥）開車也違法。</li></ul>
+<div class="rules-sources" aria-label="官方出處"><a href="https://www.police.govt.nz/advice-services/driving-and-road-safety/being-safe-road-rules-and-reasons" target="_blank" rel="noopener noreferrer">紐西蘭警察｜酒精與手機規定 ↗</a>
+<a href="https://www.nzta.govt.nz/assets/resources/driving-in-nz/docs/driving-in-nz-traditional-chinese.pdf" target="_blank" rel="noopener noreferrer">NZTA｜在紐西蘭駕車（繁體中文 PDF） ↗</a></div>
+</section>
+<section class="rules-section" id="licence-rural" aria-labelledby="licence-rural-title">
+<h2 id="licence-rural-title">駕照、租車與鄉間實務</h2>
+<ul class="rules-list"><li>2026-11-01 起入境者，可用海外駕照開 12 個月（離境再入境會重新起算）。</li>
+<li>台灣駕照不是英文，要另外帶「英文翻譯」或「國際駕照（IDP）」其中之一，而且一定要同時帶台灣駕照正本；IDP 不能單獨使用。</li>
+<li>翻譯必須由以下其中之一出具：NZTA 認可的翻譯服務、外交代表機構（大使館、領事館等）、或原發照機關。</li>
+<li>碎石路要靠左、減速，對向來車時再降速。各家租車公司對碎石路和保險的規定不同，以自己的租約為準。</li>
+<li>遇到牲畜要減速，不要按喇叭。出發前用 NZTA Journey Planner 查行程時間、封路和施工；偏遠路段有加油站就先加滿。</li>
+<li>緊急打 <strong>111</strong>（警察／消防／救護，免費）；非緊急打 105。</li></ul>
+<div class="rules-sources" aria-label="官方出處"><a href="https://www.nzta.govt.nz/travelling-on-our-roads/visitors-and-new-residents/driving-on-nz-roads" target="_blank" rel="noopener noreferrer">NZTA｜海外駕照與在紐西蘭駕車 ↗</a>
+<a href="https://www.nzta.govt.nz/travelling-on-our-roads/visitors-and-new-residents/driving-on-nz-roads/time-limit-extended-for-driving-on-an-overseas-licence" target="_blank" rel="noopener noreferrer">NZTA｜海外駕照使用期限 ↗</a>
+<a href="https://www.nzta.govt.nz/driver-licences/converting-to-nz-driver-licence/approved-translators" target="_blank" rel="noopener noreferrer">NZTA｜認可翻譯服務 ↗</a>
+<a href="https://www.journeys.nzta.govt.nz/journey-planner" target="_blank" rel="noopener noreferrer">NZTA｜Journey Planner 路況查詢 ↗</a>
+<a href="https://www.police.govt.nz/call-111" target="_blank" rel="noopener noreferrer">紐西蘭警察｜111 緊急求助 ↗</a></div>
+</section>
     </main>
     <script src="app.js?v=20261112-ui-v5"></script>
+    <script src="rules.js?v=20261113-rules-v1"></script>
   </body>
 </html>
