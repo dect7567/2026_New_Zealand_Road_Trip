@@ -523,7 +523,7 @@ const structuredDays = {
   9: {
     primaryItems: [
       info("奧塔哥半島自駕", "Otago Peninsula", "沿著半島公路前往生態景點，沿途海岸景色很漂亮。", "Otago Peninsula New Zealand"),
-      info("皇家信天翁中心", "Royal Albatross Centre", "觀賞世界少見的陸地皇家信天翁棲地與導覽。", "Royal Albatross Centre Dunedin New Zealand"),
+      info("皇家信天翁中心", "Royal Albatross Centre", "觀賞世界少見的陸地皇家信天翁棲地與導覽。", "Royal Albatross Centre Dunedin New Zealand", undefined, { guideHref: "../albatross-d9.html" }),
       info("企鵝保護區導覽", "Penguin Place", "傍晚參加企鵝保護區導覽，近距離觀察野生黃眼企鵝。", "Penguin Place Dunedin New Zealand")
     ],
     alternativeItems: [
