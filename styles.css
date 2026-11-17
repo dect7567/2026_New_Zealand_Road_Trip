@@ -493,3 +493,95 @@ h1, h2, h3, p { margin-top: 0; }
     .rules-diagrams .note { padding: 16px; }
   }
 }
+
+/* Deer Park Heights guide & D6 entry card: page-scoped screen and print styles. */
+@media screen {
+  .deer-park-page { padding-bottom: 96px; }
+  .deer-park-page .reference-header { max-width: none; }
+  .deer-park-page h2 { margin-bottom: 16px; font-family: "Noto Serif TC", serif; font-size: clamp(22px, 3vw, 28px); line-height: 1.45; }
+  .deer-park-page h3 { margin-bottom: 10px; font-size: 18px; line-height: 1.45; }
+  .deer-park-page a:not(.skip-link):not(.dp-back-link) { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+  .deer-park-page a:not(.skip-link):hover { text-decoration-thickness: 2px; }
+  .deer-park-page :is(a, button, summary, .dp-pt):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .dp-header-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 20px; }
+  .dp-back-link, .dp-print-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px 18px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--ink); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; }
+  .dp-back-link:hover, .dp-print-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .dp-road-alert { margin-bottom: 32px; padding: 14px 18px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 4px; background: var(--surface); }
+  .dp-road-alert p { margin: 0; font-size: 15px; line-height: 1.75; }
+  .dp-road-alert a { margin-left: 8px; display: inline-flex; align-items: center; min-height: 44px; }
+  .dp-section { padding-bottom: 40px; margin-bottom: 40px; border-bottom: 1px solid var(--line); }
+  .dp-info-grid, .dp-rules-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .dp-card { padding: 20px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); min-width: 0; }
+  .dp-card--wide { grid-column: 1 / -1; }
+  .dp-card ul { margin: 0; padding-left: 20px; line-height: 1.8; }
+  .dp-card li + li { margin-top: 8px; }
+  .dp-card p { margin-bottom: 0; color: var(--muted); line-height: 1.8; }
+  .dp-card strong { color: var(--ink); }
+  .dp-card a { display: inline-flex; align-items: center; min-height: 44px; margin-left: 4px; }
+  .dp-route-summary { margin-bottom: 20px; color: var(--muted); line-height: 1.85; max-width: 78ch; }
+  .dp-route-summary strong { color: var(--ink); }
+  .dp-map-figure { margin: 0; padding: 16px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); }
+  .dp-map-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+  .dp-map-panel { min-width: 0; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: var(--paper); }
+  .dp-map-panel svg { display: block; width: 100%; height: auto; }
+  .dp-map-panel svg text { font-family: "Noto Sans TC", sans-serif; }
+  .dp-pt { cursor: pointer; }
+  .dp-legend { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+  .dp-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .dp-swatch { display: inline-block; width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  .dp-swatch--ani { background: #b85338; }
+  .dp-swatch--fac { background: #4f6b3a; }
+  .dp-swatch--lotr { background: #1f5f6b; border-radius: 3px; }
+  .dp-map-caption { margin-top: 10px; font-size: 13px; color: var(--muted); line-height: 1.7; }
+  .dp-quick-legend { margin-top: 18px; }
+  .dp-quick-legend__title { margin-bottom: 10px; font-size: 14px; font-weight: 600; color: var(--muted); }
+  .dp-quick-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .dp-chip { display: inline-flex; align-items: center; min-height: 44px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--ink); font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .dp-chip:hover { border-color: var(--accent); background: #e6eeec; }
+  .dp-chip--ani { border-left: 4px solid #b85338; }
+  .dp-chip--fac { border-left: 4px solid #4f6b3a; }
+  .dp-chip--lotr { border-left: 4px solid #1f5f6b; }
+  .dp-zones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .dp-zone-card { padding: 20px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); min-width: 0; }
+  .dp-zone-desc { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 14px; }
+  .dp-stop-list, .dp-lotr-list { list-style: none; margin: 0; padding: 0; }
+  .dp-stop-list li, .dp-lotr-list li { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 10px; padding: 10px 6px; border-top: 1px solid var(--line); scroll-margin-top: 84px; }
+  .dp-stop-list strong, .dp-lotr-list strong { display: block; font-size: 15px; }
+  .dp-stop-list small, .dp-lotr-list small { display: block; margin-top: 2px; font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .dp-badge { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; color: #ffffff; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+  .dp-badge--ani { background: #b85338; }
+  .dp-badge--fac { background: #4f6b3a; }
+  .dp-badge--tri { background: #4f6b3a; clip-path: polygon(50% 6%, 96% 92%, 4% 92%); border-radius: 0; padding-top: 4px; font-size: 11px; }
+  .dp-badge--lotr { background: #1f5f6b; border-radius: 6px; }
+  .is-highlighted { background: #e6eeec; border-radius: 4px; }
+  .dp-footnote { margin: 16px 0 0; font-size: 13px; color: var(--muted); line-height: 1.75; }
+  .dp-lotr-details { border: 1px solid var(--line); border-radius: 4px; background: var(--surface); padding: 14px 18px; }
+  .dp-lotr-details summary { display: flex; align-items: center; min-height: 44px; font-weight: 700; cursor: pointer; color: var(--accent); }
+  .dp-lotr-details[open] summary { margin-bottom: 12px; }
+  .dp-approx { display: inline-block; margin-top: 4px; padding: 2px 8px; border: 1px solid var(--line); border-radius: 4px; font-size: 12px; color: var(--muted); }
+  .dp-footer { font-size: 13px; color: var(--muted); line-height: 1.75; }
+  .dp-entry-card { margin-top: 16px; padding: 16px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 4px; background: var(--paper); }
+  .dp-entry-card__meta { margin: 0 0 10px; font-size: 14px; color: var(--ink); line-height: 1.7; }
+  .dp-entry-card__link { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; font-weight: 700; color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+  @media (max-width: 1024px) {
+    .dp-map-grid { grid-template-columns: 1fr; }
+    .dp-zones { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 767px) {
+    .deer-park-page { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
+    .dp-info-grid, .dp-rules-grid { grid-template-columns: 1fr; }
+    .dp-map-figure { padding: 12px; }
+    .dp-section { padding-bottom: 28px; margin-bottom: 28px; }
+    .dp-stop-list li, .dp-lotr-list li { scroll-margin-top: 24px; }
+  }
+}
+
+@media print {
+  .deer-park-page { background: white; color: black; width: 100%; margin: 0; padding: 0; }
+  .dp-header-actions, .dp-quick-legend, .dp-entry-card { display: none !important; }
+  .deer-park-page .dp-map-figure,
+  .deer-park-page .dp-card,
+  .deer-park-page .dp-zone-card,
+  .deer-park-page .dp-lotr-details { break-inside: avoid; background: white; border-color: #999; }
+  .deer-park-page a { color: black; text-decoration: none; }
+}

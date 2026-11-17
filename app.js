@@ -220,7 +220,7 @@ const days = [
       "Queenstown Mall, New Zealand",
       "Te Anau TOP 10 Holiday Park, New Zealand"
     ],
-    main: "上午自駕前往 Deer Park Heights，帶小孩在車內沿著山丘穿梭，餵食野生小羊、駝羊、氂牛，並欣賞皇后鎮高空全景。中午回到皇后鎮市區享用午餐，隨後啟程開往蒂阿瑙，晚上參加藍光螢火蟲洞神祕之旅。",
+    main: "上午自駕前往 Deer Park Heights，帶小孩在車內沿著山丘穿梭，餵食園區飼養的動物，並欣賞皇后鎮高空全景。中午回到皇后鎮市區享用午餐，隨後啟程開往蒂阿瑙，晚上參加藍光螢火蟲洞神祕之旅。",
     stay: "Te Anau TOP 10 Holiday Park",
     stayType: "已預定住宿",
     alt: "不想看動物的旅伴，上午可以留在皇后鎮市區慢活。晚上若不參加螢火蟲洞，可以在蒂阿瑙湖畔散步觀賞落日，或前往峽灣電影院看峽灣空拍紀錄片。",
@@ -442,7 +442,7 @@ const structuredDays = {
   },
   6: {
     primaryItems: [
-      info("Deer Park Heights", "Deer Park Heights Queenstown", "自駕上山看皇后鎮全景，並安排餵動物與車內觀景。", "Deer Park Heights Queenstown New Zealand"),
+      info("Deer Park Heights", "Deer Park Heights Queenstown", "自駕上山看皇后鎮全景，並安排餵食園區飼養的動物與車內觀景。", "Deer Park Heights Queenstown New Zealand"),
       info("皇后鎮市區午餐", "Queenstown Mall", "回到市區用餐、補給，之後開往蒂阿瑙。", "Queenstown Mall New Zealand"),
       info("蒂阿瑙螢火蟲洞", "Te Anau Glowworm Caves", "晚上參加螢火蟲洞行程，作為峽灣區前一晚的重點活動。", "Te Anau Glowworm Caves New Zealand")
     ],
