@@ -243,6 +243,8 @@ h1, h2, h3, p { margin-top: 0; }
   .info-item > span, .camp-item__meta { color: var(--muted); font-size: 13px; font-weight: 400; }
   .info-item a, .camp-item a { min-width: 60px; min-height: 44px; width: auto; padding: 10px 4px; background: transparent; color: var(--accent); font-size: 14px; font-weight: 600; }
   .info-item a:hover, .camp-item a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .info-item p.info-item__tips { margin-top: 6px; font-size: 13px; line-height: 1.6; }
+  .info-item__actions { display: flex; flex-direction: column; align-items: flex-end; }
   .booking-status { background: var(--surface); border: 1px solid var(--line); color: var(--ink); font-weight: 600; }
   .camp-item:has(.booking-status) { padding: 20px; background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); margin-bottom: 12px; }
   .day-pager-shell { width: min(1280px, calc(100% - 144px)); margin: -64px auto 64px; display: flow-root; }
@@ -560,10 +562,6 @@ h1, h2, h3, p { margin-top: 0; }
   .dp-lotr-details[open] summary { margin-bottom: 12px; }
   .dp-approx { display: inline-block; margin-top: 4px; padding: 2px 8px; border: 1px solid var(--line); border-radius: 4px; font-size: 12px; color: var(--muted); }
   .dp-footer { font-size: 13px; color: var(--muted); line-height: 1.75; }
-  .dp-entry-card { margin-top: 16px; padding: 16px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 4px; background: var(--paper); }
-  .dp-entry-card__list { margin: 0 0 10px; padding-left: 20px; font-size: 14px; color: var(--ink); line-height: 1.7; }
-  .dp-entry-card__list li + li { margin-top: 2px; }
-  .dp-entry-card__link { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; font-weight: 700; color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
   @media (max-width: 1024px) {
     .dp-map-grid { grid-template-columns: 1fr; }
     .dp-zones { grid-template-columns: 1fr; }
@@ -579,7 +577,7 @@ h1, h2, h3, p { margin-top: 0; }
 
 @media print {
   .deer-park-page { background: white; color: black; width: 100%; margin: 0; padding: 0; }
-  .dp-header-actions, .dp-quick-legend, .dp-entry-card { display: none !important; }
+  .dp-header-actions, .dp-quick-legend { display: none !important; }
   .deer-park-page .dp-map-figure,
   .deer-park-page .dp-card,
   .deer-park-page .dp-zone-card,
