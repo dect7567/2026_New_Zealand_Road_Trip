@@ -273,20 +273,21 @@ const days = [
   {
     day: 9,
     date: "12/5",
-    title: "達尼丁：皇家信天翁中心與企鵝中心",
+    title: "達尼丁：奧塔哥半島（The OPERA・信天翁中心・Monarch 遊船）",
     region: "east",
     coords: { x: 61, y: 73 },
     labelCoords: { x: 91, y: 73 },
     highlight: "信天翁",
     icon: "🪽",
-    stops: ["達尼丁營地", "奧塔哥半島", "皇家信天翁中心", "企鵝保護區", "達尼丁營地"],
+    stops: ["達尼丁營地", "The OPERA", "皇家信天翁中心", "Wellers Rock 遊船", "達尼丁營地"],
     routePlaces: [
       "Dunedin Holiday Park & Motels, Dunedin, New Zealand",
-      "Royal Albatross Centre, Dunedin, New Zealand",
-      "Penguin Place, Dunedin, New Zealand",
+      "The OPERA, 45 Pakihau Road, Harington Point 9077, New Zealand",
+      "Royal Albatross Centre, 1259 Harington Point Road, Harington Point 9077, New Zealand",
+      "Wellers Rock Wharf, 813 Harington Point Road, Otakou, New Zealand",
       "Dunedin Holiday Park & Motels, Dunedin, New Zealand"
     ],
-    main: "開車沿著美麗的奧塔哥半島公路一路開到盡頭，造訪 Royal Albatross Centre 觀賞世界唯一的陸地皇家信天翁生態，接著在傍晚參加企鵝保護中心導覽，近距離觀察野生黃眼企鵝。",
+    main: "開車沿奧塔哥半島公路展開已預訂的 Triple Crown 套票行程：上午 11:30 先參加 The OPERA 生態保護區導覽（11:15 報到），下午 14:00 造訪 Royal Albatross Centre 觀賞皇家信天翁（13:45 報到），接續於 15:30 搭乘 Monarch 野生動物遊船出海觀察海洋生態（15:15 Wellers Rock 報到）。",
     stay: "Dunedin Holiday Park & Motels（續住）",
     stayType: "已預定住宿",
     alt: "不打算看鳥類和動物的同行大人，可以提早在拉納克城堡下車，參觀英式花園，並在城堡內的優雅宴會廳裡享用正統英式下午茶。",
@@ -522,16 +523,16 @@ const structuredDays = {
   },
   9: {
     primaryItems: [
-      info("奧塔哥半島自駕", "Otago Peninsula", "沿著半島公路前往生態景點，沿途海岸景色很漂亮。", "Otago Peninsula New Zealand"),
-      info("皇家信天翁中心", "Royal Albatross Centre", "觀賞世界少見的陸地皇家信天翁棲地與導覽。", "Royal Albatross Centre Dunedin New Zealand"),
-      info("企鵝保護區導覽", "Penguin Place", "傍晚參加企鵝保護區導覽，近距離觀察野生黃眼企鵝。", "Penguin Place Dunedin New Zealand")
+      info("The OPERA 導覽", "Harington Point", "45 Pakihau Road，11:30–13:00，11:15 接待處報到。", "The OPERA, 45 Pakihau Road, Harington Point 9077, New Zealand"),
+      info("皇家信天翁中心 Albatross Classic", "Harington Point", "1259 Harington Point Road，14:00–15:00，13:45 報到。", "Royal Albatross Centre, 1259 Harington Point Road, Harington Point 9077, New Zealand", undefined, { guideHref: "../albatross-d9.html" }),
+      info("Monarch 野生動物遊船", "Otakou", "Wellers Rock Wharf, 813 Harington Point Road，15:30–16:30，15:15 報到。", "Wellers Rock Wharf, 813 Harington Point Road, Otakou, New Zealand")
     ],
     alternativeItems: [
-      info("拉納克城堡", "Larnach Castle", "不看鳥類或動物的人，可參觀城堡、花園並安排下午茶。", "Larnach Castle Dunedin New Zealand"),
+      info("拉納克城堡", "Larnach Castle", "不參加套票者的替代，可參觀城堡、花園並安排下午茶。", "Larnach Castle Dunedin New Zealand"),
       info("奧塔哥半島海景咖啡", "Otago Peninsula cafes", "想放慢節奏的人，可在半島找海景咖啡或簡短散步。", "Otago Peninsula cafes New Zealand")
     ],
     foodItems: [
-      info("自備點心 / 車上輕食", "Dunedin 出發前準備", "半島行程會被信天翁中心與企鵝導覽時間切得比較碎，中午建議以自備麵包、水果、零食與飲水為主。", "supermarket Dunedin", "半島午餐 · 不依賴餐廳"),
+      info("Toroa Café 或車上自備午餐", "皇家信天翁中心", "13:00–13:45 空檔可於信天翁中心 Toroa Café 用餐（10:30 開到當日最後一場信天翁導覽結束），或車上自備麵包、水果與飲水。", "Royal Albatross Centre, 1259 Harington Point Road, Harington Point 9077, New Zealand", "半島午餐 · 13:00–13:45"),
       info("Carey's Bay Historic Hotel", "Careys Bay", "若回程走港灣方向，可作為海鮮/酒館備案。", "Careys Bay Historic Hotel", "晚餐備案 · 建議訂位"),
       info("Emerson's Brewery", "Dunedin", "若 D8 沒去，D9 Saturday 也符合官方 Tuesday-Sunday。", "Emerson's Brewery Dunedin", "Dunedin 晚餐 · 建議訂位")
     ],
