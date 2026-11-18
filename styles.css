@@ -715,8 +715,7 @@ h1, h2, h3, p { margin-top: 0; }
   .albatross-page .ab-time { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
   .albatross-page .ab-timeline-body strong { display: block; margin-bottom: 4px; color: var(--ink); }
   .albatross-page .ab-timeline-body p { margin-bottom: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
-  .albatross-page .tbc,
-  .albatross-page .ab-tbc-note {
+  .albatross-page .tbc {
     display: block;
     margin-top: 8px;
     padding: 8px 12px;
@@ -730,10 +729,6 @@ h1, h2, h3, p { margin-top: 0; }
   }
   .albatross-page .ab-tbc-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
   .albatross-page .ab-tbc-list .tbc { margin-top: 0; }
-  .albatross-page .ab-g2-preview { padding: 20px; border: 2px dashed var(--accent); border-radius: 4px; background: var(--surface); }
-  .albatross-page .ab-preview-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 12px; }
-  .albatross-page .ab-preview-head h2 { margin-bottom: 0; }
-  .albatross-page .ab-preview-badge { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 4px; background: var(--accent); color: #ffffff; font-size: 13px; font-weight: 700; }
   .albatross-page .ab-source-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
   .albatross-page .ab-source-list li { min-width: 0; }
   .albatross-page .ab-footer { padding-top: 16px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; font-size: 13px; color: var(--muted); }
@@ -763,7 +758,6 @@ h1, h2, h3, p { margin-top: 0; }
   .albatross-page .ab-header-actions { display: none !important; }
   .albatross-page .ab-card,
   .albatross-page .ab-key-card,
-  .albatross-page .ab-g2-preview,
   .albatross-page .ab-timeline li { break-inside: avoid; background: white; border-color: #999; }
   .albatross-page a { color: black; text-decoration: none; }
 }
