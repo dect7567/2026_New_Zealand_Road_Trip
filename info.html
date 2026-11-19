@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>實用資訊 · 南島旅行手帳</title>
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&family=Noto+Serif+TC:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20261119-info-transfer-v1">
   </head>
   <body>
     <a class="skip-link" href="#mainContent">跳到主要內容</a>
@@ -14,9 +14,184 @@
         <p class="eyebrow">南島旅行手帳</p>
         <h1>實用資訊</h1>
       </header>
-      <p class="sample-note">施工中</p>
-      <p>內容整理中，出發前再補上。</p>
+
+      <section id="info-flights" class="info-block">
+        <h2>航班一覽</h2>
+        <div class="info-table-wrap">
+          <table class="info-table info-table--flights">
+            <thead>
+              <tr>
+                <th scope="col">日期</th>
+                <th scope="col">航班</th>
+                <th scope="col">路線</th>
+                <th scope="col">起飛</th>
+                <th scope="col">抵達</th>
+                <th scope="col">行李託運截止</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="日期">11/26（四）→ 11/27（五）</td>
+                <td data-label="航班">NZ78</td>
+                <td data-label="路線">台北 TPE → 奧克蘭 AKL</td>
+                <td data-label="起飛">18:45</td>
+                <td data-label="抵達">隔日 10:25</td>
+                <td data-label="行李託運截止">17:15</td>
+              </tr>
+              <tr>
+                <td data-label="日期">11/27（五）</td>
+                <td data-label="航班">NZ541</td>
+                <td data-label="路線">奧克蘭 AKL → 基督城 CHC</td>
+                <td data-label="起飛">12:45</td>
+                <td data-label="抵達">14:10</td>
+                <td data-label="行李託運截止">12:15</td>
+              </tr>
+              <tr>
+                <td data-label="日期">12/8（二）</td>
+                <td data-label="航班">NZ584</td>
+                <td data-label="路線">基督城 CHC → 奧克蘭 AKL</td>
+                <td data-label="起飛">06:45</td>
+                <td data-label="抵達">08:10</td>
+                <td data-label="行李託運截止">05:45</td>
+              </tr>
+              <tr>
+                <td data-label="日期">12/8（二）</td>
+                <td data-label="航班">NZ77</td>
+                <td data-label="路線">奧克蘭 AKL → 台北 TPE</td>
+                <td data-label="起飛">10:45</td>
+                <td data-label="抵達">17:00</td>
+                <td data-label="行李託運截止">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="info-akl" class="info-block">
+        <h2>11/27 奧克蘭轉機</h2>
+        <p>NZ78 10:25 抵達，NZ541 12:45 起飛，轉機時間約 2 小時 20 分。起飛前超過 60 分鐘，適用紐航國內線轉機櫃檯；紐航建議國際線轉國內線至少預留 2 小時，這個時間符合。</p>
+        <h3>流程</h3>
+        <ol class="info-steps">
+          <li>入境審查（符合資格的護照可用 e-gate）。</li>
+          <li>到行李轉盤領行李。</li>
+          <li>通過海關與生物安全檢查（NZTD 申報內容見<a href="arrival.html">入境須知</a>）。</li>
+          <li>到國際航廈一樓的紐航國內線轉機櫃檯寄行李。11:45 前到櫃檯。這個時段櫃檯位於 Zone A（09:00–19:00）。已有行李條與登機證，可到任一開放的行李託運櫃檯；尚未報到，先用自助機。</li>
+          <li>寄完行李後只帶隨身行李，搭接駁巴士或步行到國內線航廈。</li>
+          <li>國內線航廈通過安檢，前往 NZ541 登機門。</li>
+        </ol>
+        <p>國際行李額度同樣適用於這段國內線。</p>
+        <h3>兩座航廈之間</h3>
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead>
+              <tr>
+                <th scope="col">項目</th>
+                <th scope="col">資訊</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">免費接駁巴士</th>
+                <td>免費，約 10 分鐘車程；05:00 起，末班 22:30</td>
+              </tr>
+              <tr>
+                <th scope="row">國際航廈上車處</th>
+                <td>Transport Hub 的 Bus Stop B</td>
+              </tr>
+              <tr>
+                <th scope="row">國內線航廈上車處</th>
+                <td>Door 2 外的 Bus Stop C</td>
+              </tr>
+              <tr>
+                <th scope="row">步行</th>
+                <td>官方「綠線」步道，全長 950 m，約 10–15 分鐘，沿人行道上的綠線走</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <figure class="info-map"><a href="assets/info/akl-terminals-map.png" target="_blank" rel="noopener"><img src="assets/info/akl-terminals-map.png" alt="奧克蘭機場國際航廈與國內線航廈位置圖" width="1000" height="640" loading="lazy"></a></figure>
+      </section>
+
+      <section id="info-chc" class="info-block">
+        <h2>11/27 基督城機場取車</h2>
+        <div class="info-must">
+          <h3>出發前必做</h3>
+          <p><strong>每輛露營車都要在 11/26 出發前完成 Maui 線上 check-in</strong>（填寫同行駕駛資料、觀看安全影片、閱讀租車合約），用訂位代號登入。完成後取車才能快速進行。</p>
+        </div>
+        <h3>當天順序</h3>
+        <ol class="info-steps">
+          <li>14:10 NZ541 抵達基督城，到行李轉盤領行李。</li>
+          <li>到國內線區 Door 2 外，搭橘白色、印有 Maui 標誌的接駁車前往分店。</li>
+          <li>15:30 前抵達分店取車。</li>
+          <li>每位駕駛到場，出示實體駕照。交車介紹的時間比一般租車長，預留充裕。</li>
+          <li>取車後前往 PAK'nSAVE Papanui 採買，再到 Tasman Holiday Parks 入住。</li>
+        </ol>
+        <h3>Maui 基督城分店</h3>
+        <div class="info-table-wrap">
+          <table class="info-table">
+            <thead>
+              <tr>
+                <th scope="col">項目</th>
+                <th scope="col">資訊</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">地址</th>
+                <td>159 Orchard Road, Christchurch Airport 8053</td>
+              </tr>
+              <tr>
+                <th scope="row">與機場距離</th>
+                <td>約 2.5 km；車程約 5 分鐘</td>
+              </tr>
+              <tr>
+                <th scope="row">營業時間</th>
+                <td>每日 08:00–16:30，12/25 公休</td>
+              </tr>
+              <tr>
+                <th scope="row">電話</th>
+                <td>紐西蘭境內免付費 <a href="tel:0800688558">0800 688 558</a>；分店市話 <a href="tel:+6433575624">+64 3 357 5624</a></td>
+              </tr>
+              <tr>
+                <th scope="row">分店停車</th>
+                <td>分店內沒有訪客停車位</td>
+              </tr>
+              <tr>
+                <th scope="row">接駁車</th>
+                <td>機場與分店之間雙向，約每 15 分鐘一班；人數超過座位時會加開班次。<span class="info-tbc">待確認：是否需事先來電通知</span></td>
+              </tr>
+              <tr>
+                <th scope="row">取車時段</th>
+                <td>營業時間內辦理，沒有營業時間外取車</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <figure class="info-map"><a href="assets/info/chc-airport-maui-map.png" target="_blank" rel="noopener"><img src="assets/info/chc-airport-maui-map.png" alt="基督城機場與 Maui 基督城分店位置及車行路線圖" width="1000" height="900" loading="lazy"></a></figure>
+      </section>
+
+      <section id="info-return" class="info-block">
+        <h2>12/7 還車與 12/8 返程</h2>
+        <h3>12/7 還車</h3>
+        <ol class="info-steps">
+          <li>15:30 前抵達分店還車（還車須在關門前 1 小時到達）。</li>
+          <li>還車後在分店搭接駁車回機場。</li>
+          <li>在機場國內線區 Door 2 外下車，步行前往 LyLo Christchurch Airport（5 Peter Leeming Road）入住。</li>
+        </ol>
+        <h3>12/8 返程</h3>
+        <ul class="info-bullets">
+          <li>NZ584 06:45 從基督城起飛。</li>
+          <li>08:10 抵達奧克蘭，NZ77 10:45 飛台北。紐航國內線轉國際線的行李可在出發機場直接掛到最終目的地；到奧克蘭後到國際航廈一樓與航空公司報到。<span class="info-tbc">待確認：行李是否直掛台北，在基督城託運時向櫃檯確認。</span></li>
+        </ul>
+        <h3>其他交通</h3>
+        <ul class="info-bullets">
+          <li>Uber：機場國際入境 Door 7 外的 Rideshare 上下車區。</li>
+          <li>計程車：國際入境 Door 7 外的計程車排班處；車資由各公司報價。<span class="info-tbc">待確認：計程車典型車資</span></li>
+        </ul>
+      </section>
+
+      <footer><p>資料整理日 2026-11-19</p></footer>
     </main>
-    <script src="app.js?v=20261118-albatross-d9-v1"></script>
+    <script src="app.js?v=20261119-info-transfer-v1"></script>
   </body>
 </html>

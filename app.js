@@ -14,23 +14,23 @@ const days = [
       "PAK'nSAVE Papanui, Christchurch, New Zealand",
       "Tasman Holiday Parks - Christchurch, New Zealand"
     ],
-    main: "下午兩點抵達基督城機場，出關後前往租車公司辦理露營車取車手續。隨後直接開車前往市區的大型超市，如 Pak'nSave 或 New World 進行大採買，將車上冰箱塞滿食材。第一天晚上在基督城營地過夜，熟悉露營車的設備與操作。",
+    main: "下午 14:10 抵達基督城，在國內線行李轉盤領行李後，到 Door 2 外搭 Maui 接駁車前往分店，15:30 前辦理露營車取車手續。隨後直接開車前往市區的大型超市，如 Pak'nSave 或 New World 進行大採買，將車上冰箱塞滿食材。第一天晚上在基督城營地過夜，熟悉露營車的設備與操作。",
     stay: "Tasman Holiday Parks - Christchurch",
     stayType: "已預定住宿",
     alt: "留一至兩人留在超市負責大採買，其他人可以帶著行李在露營車上安頓，或是在露營地附設的遊戲區陪小孩玩耍，放鬆長途飛行的疲勞。",
     image: "../assets/day-01-campervan-paknsave.jpg",
     primaryItems: [
       {
-        title: "抵達基督城國際機場",
+        title: "抵達基督城機場",
         location: "Christchurch International Airport",
-        description: "下午抵達後完成入境、領取行李，預留時間處理通關與同行者集合。",
+        description: "14:10 抵達後，在國內線行李轉盤領行李，同行者集合後到 Door 2 外搭 Maui 接駁車。",
         mapQuery: "Christchurch International Airport New Zealand"
       },
       {
         title: "露營車取車與設備確認",
-        location: "基督城機場周邊租車公司",
-        description: "辦理取車、檢查車況，熟悉瓦斯、冰箱、電力、清水、灰水與黑水系統。",
-        mapQuery: "Christchurch campervan rental airport New Zealand"
+        location: "Maui Christchurch，159 Orchard Road",
+        description: "出發前每輛露營車都要完成 Maui 線上 check-in。15:30 前抵達分店辦理取車、檢查車況，熟悉瓦斯、冰箱、電力、清水、灰水與黑水系統。",
+        mapQuery: "Maui Motorhome Rental Christchurch 159 Orchard Road, New Zealand"
       },
       {
         title: "PAK'nSAVE Papanui 大採買",
@@ -63,7 +63,7 @@ const days = [
       {
         title: "Riverside Market",
         location: "Christchurch CBD",
-        description: "第一晚若大家還有體力進市區，這裡適合分頭點餐，口味選擇多，20 人也比較好分流。",
+        description: "第一晚若大家還有體力進市區，這裡適合分頭點餐，口味選擇多。",
         meta: "彈性晚餐 · vendor 營業時間各自確認",
         mapQuery: "Riverside Market Christchurch"
       },
