@@ -63,7 +63,7 @@ const days = [
       {
         title: "Riverside Market",
         location: "Christchurch CBD",
-        description: "第一晚若大家還有體力進市區，這裡適合分頭點餐，口味選擇多，20 人也比較好分流。",
+        description: "第一晚若大家還有體力進市區，這裡適合分頭點餐，口味選擇多。",
         meta: "彈性晚餐 · vendor 營業時間各自確認",
         mapQuery: "Riverside Market Christchurch"
       },
