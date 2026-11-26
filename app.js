@@ -8,13 +8,14 @@ const days = [
     labelCoords: { x: 91, y: 36 },
     highlight: "露營車",
     icon: "🚐",
-    stops: ["Maui Christchurch", "PAK'nSAVE Papanui", "Tasman Holiday Parks"],
+    stops: ["Maui Christchurch", "PAK'nSAVE Papanui", "Northlands 晚餐", "Tasman Holiday Parks"],
     routePlaces: [
       "Maui Motorhome Rental Christchurch 159 Orchard Road, New Zealand",
       "PAK'nSAVE Papanui, Christchurch, New Zealand",
+      "Northlands Shopping Centre, 55 Main North Road, Papanui, Christchurch, New Zealand",
       "Tasman Holiday Parks - Christchurch, New Zealand"
     ],
-    main: "下午 14:10 抵達基督城，在國內線行李轉盤領行李後，到 Door 2 外搭 Maui 接駁車前往分店，15:30 前辦理露營車取車手續。隨後直接開車前往市區的大型超市，如 Pak'nSave 或 New World 進行大採買，將車上冰箱塞滿食材。第一天晚上在基督城營地過夜，熟悉露營車的設備與操作。",
+    main: "下午 14:10 抵達基督城，在國內線行李轉盤領行李後，到 Door 2 外搭 Maui 接駁車前往分店，15:30 前辦理露營車取車手續。隨後直接開車前往市區的大型超市，如 Pak'nSave 或 New World 進行大採買，將車上冰箱塞滿食材。晚餐安排在營地附近的 Northlands 購物中心美食街，用完餐再回營地過夜，熟悉露營車的設備與操作。",
     stay: "Tasman Holiday Parks - Christchurch",
     stayType: "已預定住宿",
     alt: "留一至兩人留在超市負責大採買，其他人可以帶著行李在露營車上安頓，或是在露營地附設的遊戲區陪小孩玩耍，放鬆長途飛行的疲勞。",
@@ -37,6 +38,13 @@ const days = [
         location: "PAK'nSAVE Papanui",
         description: "補齊第一段路程的食材、飲水、早餐、零食與基本耗材，讓露營車冰箱先滿血上路。",
         mapQuery: "PAK'nSAVE Papanui Christchurch New Zealand"
+      },
+      {
+        title: "Northlands 購物中心晚餐",
+        location: "Northlands Shopping Centre，55 Main North Road，Papanui",
+        description: "距離營地 Tasman Holiday Parks 不到 1 公里。美食街 Langdons Quarter 有 Sal's Pizza、Nando's、Ippin Ramen、Katsubi、Sushi Express、McDonald's 等，可分頭點餐、共用座位。",
+        meta: "第一晚晚餐 · 週五美食街約營業到 21:00",
+        mapQuery: "Northlands Shopping Centre 55 Main North Road Papanui Christchurch New Zealand"
       }
     ],
     alternativeItems: [
@@ -53,13 +61,20 @@ const days = [
         mapQuery: "Tasman Holiday Parks Christchurch New Zealand"
       },
       {
-        title: "機場附近簡單晚餐",
-        location: "Christchurch Airport 周邊",
-        description: "若取車和採買時間拉長，可以在機場周邊簡單用餐，降低第一天移動壓力。",
-        mapQuery: "Christchurch Airport restaurants New Zealand"
+        title: "Northlands 先用餐再採買",
+        location: "Northlands Shopping Centre",
+        description: "若取車時間拉長，可以先在 Northlands 美食街吃晚餐，再到附近的 Woolworths 採買，營地就在附近。",
+        mapQuery: "Northlands Shopping Centre 55 Main North Road Papanui Christchurch New Zealand"
       }
     ],
     foodItems: [
+      {
+        title: "Northlands 美食街 Langdons Quarter",
+        location: "Northlands Shopping Centre，Papanui",
+        description: "離營地最近的購物中心，第一晚的晚餐主選。美食街週五約營業到 21:00，各店時間不同，McDonald's 約 18:30 結束，Sal's Pizza 營業到 23:00；也有 Nando's、Ippin Ramen、Katsubi、Sushi Express 可選。",
+        meta: "晚餐主選 · 週五購物中心營業到 21:00",
+        mapQuery: "Langdons Quarter Northlands Shopping Centre Papanui Christchurch"
+      },
       {
         title: "Riverside Market",
         location: "Christchurch CBD",
@@ -73,13 +88,6 @@ const days = [
         description: "多店家共用座位的 casual food hall，適合剛抵達時不想為了餐廳訂位傷腦筋。",
         meta: "備案晚餐 · 適合混合口味",
         mapQuery: "Little High Eatery Christchurch"
-      },
-      {
-        title: "機場周邊簡單用餐",
-        location: "Christchurch Airport",
-        description: "若取車或採買延誤，直接在機場附近解決晚餐，優先保留第一晚整理車輛的時間。",
-        meta: "低壓備案 · 以當日營業為準",
-        mapQuery: "Christchurch Airport restaurants New Zealand"
       }
     ],
     supplyItems: [
@@ -89,6 +97,13 @@ const days = [
         description: "第一段重點補給：早餐、飲水、零食、露營車晚餐食材、調味料與清潔耗材一次補齊。",
         meta: "主採買點 · 建議分工採買",
         mapQuery: "PAK'nSAVE Papanui Christchurch New Zealand"
+      },
+      {
+        title: "Woolworths Northlands 就近補貨",
+        location: "85 Main North Road，Papanui",
+        description: "位於 Northlands 購物中心附近（Main North Road），晚餐前後可順路補牛奶、麵包、水果與臨時缺少的品項，離營地不到 1 公里。",
+        meta: "就近超市 · 每天 07:00–22:00",
+        mapQuery: "Woolworths Northlands 85 Main North Road Papanui Christchurch"
       },
       {
         title: "New World Bishopdale 備用採買",
@@ -191,14 +206,15 @@ const days = [
     labelCoords: { x: 31, y: 53 },
     highlight: "箭鎮小屋",
     icon: "🏠",
-    stops: ["Hampshire Wanaka", "克倫威爾", "箭鎮", "Queenstown Lakeview"],
+    stops: ["Hampshire Wanaka", "克倫威爾午餐", "箭鎮", "Queenstown Lakeview", "Flame 晚餐"],
     routePlaces: [
       "Hampshire Holiday Parks - Wanaka, New Zealand",
-      "Cromwell Heritage Precinct, New Zealand",
+      "The Stoaker Room, 180 State Highway 8B, Cromwell, New Zealand",
       "Arrowtown, New Zealand",
-      "Hampshire Holiday Parks - Queenstown Lakeview, New Zealand"
+      "Hampshire Holiday Parks - Queenstown Lakeview, New Zealand",
+      "Flame Bar & Grill, 88 Beach Street, Queenstown, New Zealand"
     ],
-    main: "早上離開瓦納卡，開車前往水果小鎮克倫威爾。中午在當地特色酒莊或精釀啤酒廠喝杯在地啤酒、享用輕食午餐。下午前往箭鎮歷史街區散步，欣賞古老金礦小鎮風情與魔戒取景的編織河道。",
+    main: "早上離開瓦納卡，開車前往水果小鎮克倫威爾。12:30 在 The Stoaker Room 用午餐，餐廳已訂位。下午前往箭鎮歷史街區散步，欣賞古老金礦小鎮風情與魔戒取景的編織河道。入住皇后鎮營地後，19:00 到碼頭邊的 Flame Bar & Grill 享用晚餐，餐廳已訂位。",
     stay: "Hampshire Holiday Parks - Queenstown Lakeview",
     stayType: "已預定住宿",
     alt: "若不想去箭鎮，可以去皇后鎮市區逛街、漫步瓦卡蒂普湖畔、朝聖 Fergburger；也可以自行前往 Skyline 纜車，在山頂景觀台喝下午茶看卓越山脈大景。",
@@ -417,8 +433,9 @@ const structuredDays = {
   5: {
     primaryItems: [
       info("瓦納卡出發", "Wanaka", "早上離開瓦納卡，往水果小鎮與皇后鎮方向前進。", "Wanaka New Zealand"),
-      info("克倫威爾午餐", "Cromwell Heritage Precinct", "可安排酒莊、精釀或老街區輕食午餐，作為前往皇后鎮前的中停。", "Cromwell Heritage Precinct New Zealand"),
-      info("箭鎮歷史街區", "Arrowtown", "下午散步金礦小鎮街區，看老建築、河道與小店。", "Arrowtown New Zealand")
+      info("克倫威爾午餐", "The Stoaker Room，180 State Highway 8B", "12:30 午餐，餐廳已確認訂位。兩份 Butcher's Feast 會在抵達時上桌，現場也可以再加點其他菜色。餐廳電話 03 445 4841。", "The Stoaker Room Cromwell 180 State Highway 8B", "已預訂 · 12/1 12:30"),
+      info("箭鎮歷史街區", "Arrowtown", "下午散步金礦小鎮街區，看老建築、河道與小店。", "Arrowtown New Zealand"),
+      info("Flame Bar & Grill 晚餐", "Steamer Wharf，88 Beach Street，Queenstown", "19:00 入座，餐廳已確認訂位，團體套餐為 Flame's Ultimate Indulgence，分享式上菜，另有兒童菜單。餐廳要求 21:15 前交還座位；遲到請先致電 03 409 2342，保留時間為 15 分鐘。", "Flame Bar Grill 88 Beach Street Queenstown", "已預訂 · 12/1 19:00")
     ],
     alternativeItems: [
       info("皇后鎮湖畔散步", "Queenstown Bay Beach", "若不去箭鎮，可以提早到皇后鎮湖邊散步或逛街。", "Queenstown Bay Beach New Zealand"),
@@ -426,10 +443,11 @@ const structuredDays = {
       info("Skyline 山頂景觀", "Skyline Queenstown", "想看卓越山脈與湖景，可以搭纜車上山頂觀景台。", "Skyline Queenstown New Zealand")
     ],
     foodItems: [
-      info("The Stoaker Room Cromwell", "Cromwell", "克倫威爾午餐主選，若全團一起吃建議先訂位。", "The Stoaker Room Cromwell", "午餐主推 · 官方時間已查"),
+      info("Flame Bar & Grill", "Queenstown", "碼頭邊的燒烤餐廳，晚餐已確認訂位，團體套餐為 Flame's Ultimate Indulgence，分享式上菜。", "Flame Bar Grill 88 Beach Street Queenstown", "已預訂 · 12/1 19:00 · 21:15 交還座位"),
+      info("The Stoaker Room Cromwell", "180 State Highway 8B，Cromwell", "午餐已確認訂位，兩份 Butcher's Feast 抵達時上桌，現場可再加點。", "The Stoaker Room Cromwell 180 State Highway 8B", "已預訂 · 12/1 12:30"),
       info("Hook Wanaka", "Wanaka", "D4 週一休息不適合安排；若 D5 早上想在瓦納卡多留一點，可作為現釣鮭魚與輕食備案，最後租竿 16:30。", "Hook Wanaka", "隔天備案 · 週二可確認"),
       info("Arrowtown Bakery", "Arrowtown", "箭鎮散步時的派與點心備案，適合外帶分食。", "Arrowtown Bakery", "點心備案 · 以當日營業為準"),
-      info("Fergburger", "Queenstown", "抵達皇后鎮後的經典外帶選項，建議錯峰或拆小組買。", "Fergburger Queenstown", "晚餐/宵夜 · 排隊預期")
+      info("Fergburger", "Queenstown", "經典外帶選項，適合宵夜或隔天路上，建議錯峰或拆小組買。", "Fergburger Queenstown", "宵夜/外帶 · 排隊預期")
     ],
     supplyItems: [
       info("Cromwell 水果與簡單補給", "Cromwell", "水果鎮適合補水果、點心與隔天路上零食。", "fruit shop Cromwell New Zealand", "路上補給 · 順路即可"),
@@ -457,7 +475,6 @@ const structuredDays = {
     ],
     foodItems: [
       info("Fergbaker", "Queenstown", "早上離開皇后鎮前可買麵包、派與路上點心。", "Fergbaker Queenstown", "早餐/外帶 · 排隊預期"),
-      info("Flame Bar & Grill", "Queenstown", "若 D5 沒吃到，可作為皇后鎮晚餐備案；20 人建議訂位。", "Flame Bar Grill Queenstown", "備案晚餐 · 建議訂位"),
       info("Redcliff Cafe", "Te Anau", "抵達 Te Anau 後的晚餐候選，若螢火蟲行程前後用餐需先確認時間。", "Redcliff Cafe Te Anau", "晚餐候選 · 先訂位/確認")
     ],
     supplyItems: [
